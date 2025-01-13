@@ -1,0 +1,58 @@
+<div class="main-container d-flex justify-center align-center flex-d-col m-b-100">
+  <div class="text d-flex flex-d-col m-b-60">
+    <h1 class="overflow">
+      <span class="title">My Own Projects</span>
+    </h1>
+    <h2 class="overflow">
+      <span class="subtitle"> Angular TypeScript Gsap </span>
+    </h2>
+  </div>
+  <div class="content d-flex flex-d-col justify-center align-center">
+    <div class="git-logo d-flex justify-center p-b-200">
+      <img src="assets/images/git-logo.svg" alt="" />
+    </div>
+    <div (click)="navigateToGitHub()" #hoverBTN (mouseenter)="enter()" (mouseleave)="leave()" class="button">
+      <button class="d-flex justify-center align-center">
+        <span class="m-r-8"> My GitHub </span>
+        <img src="assets/images/link.svg" alt="" />
+      </button>
+    </div>
+    <div class="git-commit">
+      <div class="top-bar d-flex align-center justify-space-between p-10">
+        <div class="left d-flex justify-center">
+          <img class="m-r-8" src="assets/images/git-logo.svg" alt="" />
+          <span class="m-r-8">Andriy</span>
+          <span class="gray m-r-15">fix</span>
+          <img src="assets/images/check.svg" alt="" />
+        </div>
+        <div class="right d-flex justify-center">
+          <span class="gray m-r-8">429eOff</span>
+          <span class="gray m-r-15">5 days ago</span>
+          <img class="m-r-5" src="assets/images/clock-arrow.svg" alt="" />
+          <span> 58 Commits </span>
+        </div>
+      </div>
+      <div class="files">
+        <div
+          *ngFor="let file of files"
+          class="file p-10 d-flex align-center justify-space-between"
+        >
+          <div class="name d-flex align-center">
+            <img class="m-r-10" [src]="file.imgSrc" alt="folder" />
+            <span>{{ file.name }}</span>
+          </div>
+          <div class="time d-flex justify-space-between">
+            <span class="gray">{{ file.commitMessage }}</span>
+            <span class="gray">{{ file.timeAgo }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="technologies d-flex flex-d-col justify-center align-center">
+      <div class="logotypes d-flex flex-d-row justify-space-between ">
+        <img *ngFor="let logotype of logotypes" class="img" [src]="logotype.image" [style.border-radius]="(logotype.image === 'assets/images/js-logo.svg' || logotype.image === 'assets/images/ts-logo.svg') ? '5px' : '0px'" alt="" />
+      </div>
+      <span class="technology-text m-t-50">Web development technologies that I use</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+.main-container {
+  scroll-behavior: smooth;
+  height: 100%;
+  font-family: Rubik;
+  .gray {
+    color: var(--gray);
+  }
+  .text {
+    text-align: center;
+    line-height: 1.5;
+    .title {
+      display: inline-block;
+      background: var(---title-background);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 70px;
+    }
+    .subtitle {
+      display: inline-block;
+      font-size: 40px;
+    }
+  }
+  .content {
+    width: 100%;
+    .git-logo {
+      background: url("/assets/images/back-color.svg") 530px / 604px 597px no-repeat;
+      background-position: center -100px;
+      width: 100%;
+      height: auto;
+      img {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+    .button {
+      top: 720px;
+      position: absolute;
+      width: 100%;
+      max-width: 200px;
+      height: 50px;
+      border-radius: 10px;
+      z-index: 20;
+      box-shadow: 0 0 20px rgb(255 255 255 / 49%);
+      button {
+        transition-delay: 0.1s;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        border: none;
+        font-size: 17px;
+        img {
+          transition-delay: 0.1s;
+          width: 20px;
+          height: 20px;
+          transition: filter 0.3s ease;
+        }
+      }
+      button:hover {
+        transition-delay: 0.1s;
+        background-color: var(--deep-blue);
+        color: var(--white-opacity);
+        img {
+          filter: brightness(0) saturate(100%) invert(95%) sepia(52%)
+            saturate(0%) hue-rotate(229deg) brightness(70%) contrast(102%);
+        }
+      }
+    }
+    .git-commit {
+      width: 100%;
+      max-width: 900px;
+      border: 1px solid var(--border-dark);
+      border-radius: 5px;
+      position: absolute;
+      top: 570px;
+      .top-bar {
+        height: 50px;
+        border-bottom: 1px solid var(--border-dark);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: #151b23;
+        .left {
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+        .right {
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+      .files {
+        width: 100%;
+        background-color: var(--background);
+
+        .file {
+          height: 40px;
+          img {
+            width: 20px;
+            height: 20px;
+          }
+          .time {
+            width: 56%;
+          }
+        }
+        .file:not(:last-child) {
+          border-bottom: 1px solid var(--border-dark);
+        }
+      }
+    }
+    .technologies {
+      max-width: 900px;
+      width: 100%;
+      overflow: hidden;
+      .logotypes {
+        flex-wrap: wrap;
+        width: 100%;
+        img {
+          width: 80px;
+          filter: brightness(0) saturate(100%) invert(95%) sepia(52%)
+            saturate(0%) hue-rotate(229deg) brightness(107%) contrast(102%);
+        }
+      }
+      .span {
+        font-size: 18px;
+      }
+    }
+  }
+}

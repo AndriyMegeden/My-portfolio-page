@@ -1,0 +1,21 @@
+.wrap {
+  margin-top: 150px;
+  font-family: Rubik;
+  .text {
+    text-align: center;
+    line-height: 1.5;
+    .title {
+      display: inline-block;
+      background: var(---title-background);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 70px;
+    }
+  }
+  .slider{
+    img{
+      width: 100px;
+    }
+  }
+}

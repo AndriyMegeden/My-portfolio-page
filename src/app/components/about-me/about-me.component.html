@@ -1,0 +1,29 @@
+<div class="wrap d-flex justify-center align-center flex-d-col" #wrap>
+  <div class="about-me d-flex">
+    <div *ngFor="let letter of letters" class="letter">
+      <span
+        [style.margin-right]="letter.letter === 't' ? '70px' : '0px'"
+        class="span"
+        >{{ letter.letter }}</span
+      >
+    </div>
+  </div>
+  <div class="description">
+    <img class="earth" src="assets/images/earth.svg" alt="" />
+    <div class="text p-16">
+        <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
+            quibusdam quasi laborum dolore aperiam molestias reiciendis accusantium
+            corrupti facilis neque tempora eligendi temporibus autem sed ipsa amet
+            nulla ad, impedit repellendus tempore quae vitae rem blanditiis? Facilis
+            earum tempora ratione minus eligendi ullam voluptatum non tempore
+            perferendis? Sunt labore quasi doloremque ullam repellat nobis optio ipsa
+            sit sint quibusdam, cum et quidem, eveniet consectetur beatae pariatur
+            omnis eum maxime perferendis tempora nisi magni enim nemo itaque.
+            Recusandae quisquam omnis voluptate dolore eius eligendi, cupiditate est
+            tempore, exercitationem ad praesentium ullam fuga. Praesentium culpa, sed
+            temporibus ipsa incidunt magnam rerum sunt.
+        </span>
+    </div>
+  </div>
+</div>
