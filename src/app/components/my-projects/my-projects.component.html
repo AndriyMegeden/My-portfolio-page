@@ -4,27 +4,42 @@
       <span class="title">My Projects</span>
     </h1>
   </div>
-  <div class="slider">
-    <ngx-slick-carousel
-      class="carousel"
-      #slickModal="slick-carousel"
-      [config]="slideConfig"
-      (init)="slickInit($event)"
-    >
-      <div ngxSlickItem *ngFor="let slide of slides" class="card m-lr-14">
-        <div class="content d-flex align-end md-justify-center">
-          <div class="img">
-            <img [src]="slide.img" alt="Project image" />
+  <div class="slider d-flex justify-center align-center p-30">
+    <div class="carousel-contaner d-flex justify-center align-center">
+      <button class="custom-arrow prev-arrow" (click)="slickModal.slickPrev()">
+        <img src="assets/images/arrow.svg" />
+      </button>
+      <ngx-slick-carousel
+        class="carousel"
+        #slickModal="slick-carousel"
+        [config]="slideConfig"
+        (init)="slickInit($event)"
+      >
+        <div ngxSlickItem *ngFor="let slide of slides">
+          <div class="content d-flex flex-d-row align-center justify-center">
+            <div class="management m-r-50">
+              <div class="title m-b-20">
+                <span>Influencer</span>
+              </div>
+              <div #hoverBTN class="button">
+                <button class="d-flex justify-center align-center">
+                  <span class="m-r-8"> Visit </span>
+                  <img src="assets/images/visit.svg" alt="" />
+                </button>
+              </div>
+            </div>
+            <div class="img">
+              <img [src]="slide.img" alt="Project image" />
+            </div>
           </div>
         </div>
-      </div>
-    </ngx-slick-carousel>
+      </ngx-slick-carousel>
+      <button class="custom-arrow next-arrow" (click)="slickModal.slickNext()">
+        <img src="assets/images/arrow.svg" />
+      </button>
+    </div>
   </div>
 </div>
-
-
-
-
 
 <!-- {
   "name": "lending-resume",
@@ -78,17 +93,7 @@
 }
  -->
 
-
-
-
-
-
-
-
-
-
- 
- <!-- {
+<!-- {
   "name": "lending-resume",
   "version": "0.0.0",
   "scripts": {

@@ -42,7 +42,7 @@
     display: block !important;
 }
 .d-flex{
-    display: flex;
+    display: flex !important;
     &.d-wrap{
         flex-wrap: wrap;
         justify-self: unset;
@@ -393,6 +393,9 @@
 .m-b-100{
     margin-bottom: 100px;
 }
+.m-b-150{
+    margin-bottom: 150px;
+}
 .m-b-240{
     margin-bottom: 240px;
 }
@@ -448,6 +451,9 @@
 }
 .p-20{
     padding: 20px;
+}
+.p-30{
+    padding: 30px;
 }
 // Padding left
 .p-l-16{
