@@ -25,32 +25,20 @@ export class MyProjectsComponent implements AfterViewInit {
     autoplay: false,
     autoplaySpeed: 2000,
     arrows: false,
-    responsive: [
-      {
-        breakpoint: 1190,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
+    // responsive: [
+    //   {
+    //     breakpoint: 1190,
+    //     settings: {
+    //       slidesToShow: 1,
+    //     },
+    //   },
+    // ],
   };
 
   slickInit(event: any) {
     console.log('Slick initialized', event);
   }
-
+  // перехід до проектів
   navigateToProject(link?: string): void {
     if (link) {
       window.open(link, '_blank'); // Відкриє посилання в новій вкладці
@@ -61,6 +49,41 @@ export class MyProjectsComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformid)) {
+      gsap.from('.explore', {
+        opacity: 0,
+        y: 45,
+        duration: 1,
+        scrollTrigger: {
+          trigger: '.explore',
+          start: 'top 80%',
+          toggleActions: 'play none none none',
+          markers: false,
+        },
+      });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.slider',
+          start: 'top 75%',
+          toggleActions: 'play none none none',
+          markers: false,
+        },
+      });
+
+      tl.from('.carousel-contaner', {
+        opacity: 0,
+        y: 100,
+        duration: 1,
+      })
+        .from('.carousel', {
+          opacity: 0,
+          y: 50,
+          duration: 0.5,
+        })
+        .from(['.prev-arrow', '.next-arrow'], {
+          opacity: 0,
+          x: (index) => (index === 0 ? -100 : 100), // різні напрямки для стрілок
+          duration: 1,
+        });
     }
   }
 

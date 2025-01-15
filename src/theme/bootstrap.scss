@@ -42,7 +42,7 @@
     display: block !important;
 }
 .d-flex{
-    display: flex !important;
+    display: flex;
     &.d-wrap{
         flex-wrap: wrap;
         justify-self: unset;

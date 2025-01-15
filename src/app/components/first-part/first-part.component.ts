@@ -37,9 +37,6 @@ export class FirstPartComponent implements AfterViewInit {
       window.onbeforeunload = function () {
         window.scrollTo(0, 0);
       };
-
-
-
       gsap.from('.title, .subtitle', { opacity: 0, duration: 1, y: 45 });
       gsap.from('.git-logo', { opacity: 0, duration: 1 });
       gsap.from('.git-commit, .button', { duration: 1, y: 300 });
