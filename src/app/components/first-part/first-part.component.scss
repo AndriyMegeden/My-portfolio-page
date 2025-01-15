@@ -24,7 +24,8 @@
   .content {
     width: 100%;
     .git-logo {
-      background: url("/assets/images/back-color.svg") 530px / 604px 597px no-repeat;
+      background: url("/assets/images/back-color.svg") 530px / 604px 597px
+        no-repeat;
       background-position: center -100px;
       width: 100%;
       height: auto;
@@ -36,35 +37,6 @@
     .button {
       top: 720px;
       position: absolute;
-      width: 100%;
-      max-width: 200px;
-      height: 50px;
-      border-radius: 10px;
-      z-index: 20;
-      box-shadow: 0 0 20px rgb(255 255 255 / 49%);
-      button {
-        transition-delay: 0.1s;
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        border: none;
-        font-size: 17px;
-        img {
-          transition-delay: 0.1s;
-          width: 20px;
-          height: 20px;
-          transition: filter 0.3s ease;
-        }
-      }
-      button:hover {
-        transition-delay: 0.1s;
-        background-color: var(--deep-blue);
-        color: var(--white-opacity);
-        img {
-          filter: brightness(0) saturate(100%) invert(95%) sepia(52%)
-            saturate(0%) hue-rotate(229deg) brightness(70%) contrast(102%);
-        }
-      }
     }
     .git-commit {
       width: 100%;

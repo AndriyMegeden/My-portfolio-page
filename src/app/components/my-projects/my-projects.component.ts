@@ -1,7 +1,8 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 @Component({
   selector: 'app-my-projects',
   standalone: true,
@@ -9,7 +10,11 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
   templateUrl: './my-projects.component.html',
   styleUrls: ['./my-projects.component.scss'],
 })
-export class MyProjectsComponent {
+export class MyProjectsComponent implements AfterViewInit {
+
+constructor(@Inject(PLATFORM_ID) private platformid: Object) {}
+
+
   slides = [
     { img: 'assets/slider/influencer.png' },
     { img: 'assets/slider/be-best.png' },
@@ -18,9 +23,9 @@ export class MyProjectsComponent {
   public slideConfig = {
     slidesToShow: 1,
     slidesToScroll: 1,
-    dots: false, // Додаємо точки навігації
+    dots: false,
     infinite: true,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2000,
     arrows: false, 
     responsive: [
@@ -48,4 +53,28 @@ export class MyProjectsComponent {
   slickInit(event: any) {
     console.log('Slick initialized', event);
   }
+
+
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformid)) {
+      
+
+    }
+  }
+
+  enter() {
+    gsap.to('.button', {
+      scale: 1.2,
+      duration: 0.5,
+      ease: 'power2.out',
+    });
+  }
+  leave() {
+    gsap.to('.button', {
+      scale: 1,
+      duration: 0.5,
+      ease: 'power2.out',
+    });
+  }
+
 }

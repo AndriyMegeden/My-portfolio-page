@@ -1,10 +1,10 @@
 <div class="wrap d-flex justify-center flex-d-col">
   <div class="text d-flex flex-d-col m-b-60">
     <h1>
-      <span class="title">My Projects</span>
+      <span class="title">Explore My Works</span>
     </h1>
   </div>
-  <div class="slider d-flex justify-center align-center p-30">
+  <div class="slider d-flex justify-center align-center p-lr-24">
     <div class="carousel-contaner d-flex justify-center align-center">
       <button class="custom-arrow prev-arrow" (click)="slickModal.slickPrev()">
         <img src="assets/images/arrow.svg" />
@@ -21,7 +21,7 @@
               <div class="title m-b-20">
                 <span>Influencer</span>
               </div>
-              <div #hoverBTN class="button">
+              <div #hoverBTN class="button" (mouseenter)="enter()" (mouseleave)="leave()">
                 <button class="d-flex justify-center align-center">
                   <span class="m-r-8"> Visit </span>
                   <img src="assets/images/visit.svg" alt="" />

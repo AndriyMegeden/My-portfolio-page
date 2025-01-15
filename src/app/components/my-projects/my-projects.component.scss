@@ -22,9 +22,9 @@
       height: 300px;
       background: radial-gradient(
         circle,
-        rgba(1, 3, 19, 1) 73%,
-        rgba(5, 17, 157, 1) 89%,
-        rgba(0, 52, 197, 1) 100%
+        var(--background) 73%,
+        var(--dark-blue) 89%,
+        var(--deep-blue) 100%
       );
       .custom-arrow {
         width: 80px;
@@ -47,38 +47,6 @@
             .title {
               font-size: 56px;
             }
-            .button {
-              width: 100%;
-              max-width: 200px;
-              height: 50px;
-              border-radius: 10px;
-              z-index: 20;
-              box-shadow: 0 0 20px rgb(255 255 255 / 49%);
-              button {
-                transition-delay: 0.1s;
-                width: 100%;
-                height: 100%;
-                border-radius: 10px;
-                border: none;
-                font-size: 17px;
-                img {
-                  transition-delay: 0.1s;
-                  width: 20px;
-                  height: 20px;
-                  transition: filter 0.3s ease;
-                }
-              }
-              button:hover {
-                transition-delay: 0.1s;
-                background-color: var(--deep-blue);
-                color: var(--white-opacity);
-                img {
-                  filter: brightness(0) saturate(100%) invert(95%) sepia(52%)
-                    saturate(0%) hue-rotate(229deg) brightness(70%)
-                    contrast(102%);
-                }
-              }
-            }
           }
           .img {
             width: auto;
@@ -87,9 +55,9 @@
             border-radius: 20px;
             background: radial-gradient(
               circle,
-              rgba(1, 3, 19, 1) 40%,
-              rgba(5, 17, 157, 1) 70%,
-              rgba(0, 52, 197, 1) 100%
+              var(--background) 40%,
+              var(--dark-blue) 70%,
+              var(--deep-blue) 100%
             );
             img {
               width: 100%;
