@@ -3,6 +3,7 @@ import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { myProjectSettings } from 'src/static/my-projects.settings';
 @Component({
   selector: 'app-my-projects',
   standalone: true,
@@ -11,23 +12,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   styleUrls: ['./my-projects.component.scss'],
 })
 export class MyProjectsComponent implements AfterViewInit {
+  constructor(@Inject(PLATFORM_ID) private platformid: Object) {}
 
-constructor(@Inject(PLATFORM_ID) private platformid: Object) {}
-
-
-  slides = [
-    { img: 'assets/slider/influencer.png' },
-    { img: 'assets/slider/be-best.png' },
-  ];
+  // імпортуємо дані з файлу з настройками
+  public slider = myProjectSettings.slider;
 
   public slideConfig = {
     slidesToShow: 1,
     slidesToScroll: 1,
     dots: false,
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
-    arrows: false, 
+    arrows: false,
     responsive: [
       {
         breakpoint: 1190,
@@ -54,11 +51,16 @@ constructor(@Inject(PLATFORM_ID) private platformid: Object) {}
     console.log('Slick initialized', event);
   }
 
+  navigateToProject(link?: string): void {
+    if (link) {
+      window.open(link, '_blank'); // Відкриє посилання в новій вкладці
+    } else {
+      console.log('Link is not available');
+    }
+  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformid)) {
-      
-
     }
   }
 
@@ -76,5 +78,4 @@ constructor(@Inject(PLATFORM_ID) private platformid: Object) {}
       ease: 'power2.out',
     });
   }
-
 }

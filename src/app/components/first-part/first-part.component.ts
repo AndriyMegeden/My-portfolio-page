@@ -28,7 +28,7 @@ export class FirstPartComponent implements AfterViewInit {
   @ViewChild('hover') hoverBTN!: ElementRef;
 
   navigateToGitHub() {
-    window.location.href = 'https://github.com/AndriyMegeden?tab=repositories';
+    window.open('https://github.com/AndriyMegeden?tab=repositories', '_blank');
   }
 
   ngAfterViewInit(): void {

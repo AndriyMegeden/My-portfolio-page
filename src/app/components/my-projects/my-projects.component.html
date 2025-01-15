@@ -15,13 +15,16 @@
         [config]="slideConfig"
         (init)="slickInit($event)"
       >
-        <div ngxSlickItem *ngFor="let slide of slides">
-          <div class="content d-flex flex-d-row align-center justify-center">
+        <div ngxSlickItem *ngFor="let slide of slider">
+          <div  class="content p-lr-24 d-flex flex-d-row align-center justify-center">
             <div class="management m-r-50">
-              <div class="title m-b-20">
-                <span>Influencer</span>
+              <div class="title m-b-10 ">
+                <span>{{slide.title}}</span>
               </div>
-              <div #hoverBTN class="button" (mouseenter)="enter()" (mouseleave)="leave()">
+              <div class="subtitle">
+                <span>{{slide.subtitle}}</span>
+              </div>
+              <div class="button m-t-20" (click)="navigateToProject(slide.link)" (mouseenter)="enter()" (mouseleave)="leave()">
                 <button class="d-flex justify-center align-center">
                   <span class="m-r-8"> Visit </span>
                   <img src="assets/images/visit.svg" alt="" />
@@ -29,7 +32,7 @@
               </div>
             </div>
             <div class="img">
-              <img [src]="slide.img" alt="Project image" />
+              <img [src]="slide.slide" alt="Project image" />
             </div>
           </div>
         </div>

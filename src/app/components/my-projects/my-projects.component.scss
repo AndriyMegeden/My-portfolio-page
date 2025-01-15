@@ -44,8 +44,13 @@
         width: 100%;
         .content {
           .management {
+            max-width: 240px;
+            width: 100%;
             .title {
-              font-size: 56px;
+              font-size: 46px;
+            }
+            .subtitle{
+              font-size: 26px;
             }
           }
           .img {

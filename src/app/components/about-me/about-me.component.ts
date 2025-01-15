@@ -20,6 +20,11 @@ import { aboutMeSettings } from 'src/static/about-me.settings';
 export class AboutMeComponent implements AfterViewInit {
   @ViewChild('wrap') wrap!: ElementRef;
 
+ // імпортуємо дані з файлу з настройками
+ public letters = aboutMeSettings.letters;
+
+
+
   constructor(
     private elRef: ElementRef,
     @Inject(PLATFORM_ID) private platformid: Object
@@ -63,7 +68,5 @@ export class AboutMeComponent implements AfterViewInit {
     }
   }
 
-  // імпортуємо дані з файлу з настройками
-  letters = aboutMeSettings.letters;
-
+ 
 }
