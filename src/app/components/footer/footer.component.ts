@@ -8,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-
+  openTg() {
+    window.open('https://t.me/Andriyko_meged', '_blank');
+  }
+  scrollTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' 
+    });
+  }
+  
 }

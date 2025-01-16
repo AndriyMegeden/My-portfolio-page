@@ -5,14 +5,42 @@
     position: relative;
     border-bottom: 1px solid var(--border-dark);
     background-repeat: no-repeat;
-    background: url('/assets/images/telegram.svg') center / 455px 407px no-repeat, linear-gradient(var(--background) 50%, var(--deep-blue) 180%);
+    background: url("/assets/images/telegram.svg") center / 455px 407px
+        no-repeat,
+      linear-gradient(var(--background) 50%, var(--deep-blue) 100%);
     width: 100%;
     img {
       height: 500px;
     }
+    .content {
+      span {
+        font-size: 56px;
+        font-family: Rubik;
+      }
+      z-index: 20;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      .button {
+        box-shadow: none;
+      }
+    }
   }
   .telegram-container::before {
-    background: linear-gradient(90deg, var(--bg-color-light-transparent) 0, var(--accent-color-secondary) 50%, var(--bg-color-light-transparent) 100%);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: radial-gradient(
+      circle,
+      var(--deep-blue) 0%,
+      var(--dark-blue) 46%,
+      var(--background) 94%
+    );
+    z-index: 10;
   }
   .telegram-container::after {
     content: "";
@@ -21,14 +49,45 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: var(--bg-color-dark-transparent);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background-color: var(--bg-transparent);
+    backdrop-filter: blur(20px);
+  }
+  .inner-container {
+    width: 100%;
+    height: 500px;
+    background: radial-gradient(
+      120% 120% at 50% -50%,
+      var(--dark-blue) 36%,
+      transparent 55%
+    );
   }
   .button-top {
-    max-width: 1100px;
+    max-width: 1000px;
     width: 100%;
     height: 60px;
+    span {
+      font-family: Rubik;
+      font-size: 16px;
+      color: var(--white-opacity);
+    }
+    .arrow-top {
+      width: 40px;
+      height: 30px;
+      cursor: pointer;
+      background: radial-gradient(
+          500% 220% at 50% 140%,
+          var(--background) 47.5%,
+          var(--deep-blue) 63.5%
+        )
+        top / 100% 90px no-repeat;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      img {
+        padding: 3px;
+        width: 100%;
+        height: 100%;
+        transform: rotate(270deg);
+      }
+    }
   }
- 
 }
