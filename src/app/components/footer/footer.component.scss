@@ -9,11 +9,9 @@
         no-repeat,
       linear-gradient(var(--background) 50%, var(--deep-blue) 100%);
     width: 100%;
-    img {
-      height: 500px;
-    }
+
     .content {
-      span {
+      .title-tg {
         font-size: 56px;
         font-family: Rubik;
       }
@@ -24,6 +22,13 @@
       transform: translate(-50%, -50%);
       .button {
         box-shadow: none;
+        button:hover {
+          color: var(--black);
+          background-color: var(--white);
+          img {
+            filter: none;
+          }
+        }
       }
     }
   }
