@@ -43,6 +43,7 @@ export class AboutMeComponent implements AfterViewInit {
         },
       }),
         gsap.from('.span', {
+          ease: "back.out(7)",
           opacity: 0,
           stagger: { amount: 1 },
           x: -100,
@@ -56,11 +57,13 @@ export class AboutMeComponent implements AfterViewInit {
           },
         });
       gsap.from('.description', {
+        ease: "back.out(7)",
         opacity: 0,
         y: 100,
-        duration: 1,
+        duration: 2,
         scrollTrigger: {
           trigger: '.wrap',
+          toggleActions: 'play none none none',
           start: '400px 70%',
           markers: false,
         },

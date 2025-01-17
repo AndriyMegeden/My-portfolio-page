@@ -44,7 +44,7 @@ export class FirstPartComponent implements AfterViewInit {
       gsap.from('.img', {
         opacity: 0,
         y: 100,
-        stagger: { amount: 0.8 },
+        stagger: { amount: 1 },
         scrollTrigger: {
           trigger: '.logotypes',
           start: 'bottom 92%',

@@ -3,7 +3,7 @@
     <div class="inner-container"></div>
     <div class="content d-flex align-center flex-d-col">
       <span class="title-tg">My Telegram</span>
-      <div (click)="openTg()" class="button m-t-20">
+      <div (click)="openTg()" (mouseenter)="enter()" (mouseleave)="leave()" class="contact-btn button m-t-20">
         <button class="d-flex justify-center align-center">
           <span class="m-r-8">Contact Me</span>
           <img src="assets/images/tg-button.svg" alt="" />
@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="button-top d-flex justify-space-between align-end flex-d-row">
-    <span class="m-b-15">Front End Developer</span>
+    <span class="bottom-text m-b-15">Front End Developer</span>
     <div class="arrow-top" (click)="scrollTop()">
       <img src="assets/images/arrow.svg" alt="" />
     </div>
