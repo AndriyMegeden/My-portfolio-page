@@ -1,6 +1,12 @@
-.page {
-  padding-top: 200px;
-  position: relative;
-//   scroll-behavior: smooth;
-//   overflow-y: scroll; /* дозволяє вертикальний скрол */
+.wrapper {
+  max-width: 100%;
+  padding: 0;
+  .content {
+    .page {
+      padding-top: 200px;
+      position: relative;
+      //   scroll-behavior: smooth;
+      //   overflow-y: scroll; /* дозволяє вертикальний скрол */
+    }
+  }
 }
