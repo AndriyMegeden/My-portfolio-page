@@ -20,10 +20,8 @@ import { aboutMeSettings } from 'src/static/about-me.settings';
 export class AboutMeComponent implements AfterViewInit {
   @ViewChild('wrap') wrap!: ElementRef;
 
- // імпортуємо дані з файлу з настройками
- public letters = aboutMeSettings.letters;
-
-
+  // імпортуємо дані з файлу з настройками
+  public letters = aboutMeSettings.letters;
 
   constructor(
     private elRef: ElementRef,
@@ -32,7 +30,7 @@ export class AboutMeComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     gsap.registerPlugin(ScrollTrigger);
-    // іде перевірка чи код виконується в браузері
+    // перевірка, чи код виконується в браузері
     if (isPlatformBrowser(this.platformid)) {
       gsap.from('.wrap', {
         opacity: 0,
@@ -41,36 +39,31 @@ export class AboutMeComponent implements AfterViewInit {
           markers: false,
           start: '1200px 80%',
         },
-      }),
-        gsap.from('.span', {
-          ease: "back.out(7)",
+      });
+  
+      gsap.timeline({
+          scrollTrigger: {
+            trigger: '.wrap',
+            markers: false,
+            start: 'top 70%',
+            toggleActions: 'play none none none',
+          },
+        })
+        .from('.span', {
           opacity: 0,
+          ease: "back.out(4)",
           stagger: { amount: 1 },
           x: -100,
           rotation: -15,
           duration: 1,
-          scrollTrigger: {
-            trigger: '.wrap',
-            start: 'top 70%',
-            toggleActions: 'play none none none',
-            markers: false,
-          },
+        })
+        .from('.description', {
+          ease: "back.out(4)",
+          opacity: 0,
+          y: 100,
+          duration: 1,
         });
-      // gsap.from('.description', {
-      //   opacity: 0,
-      //   y: 100,
-      //   duration: 2,
-      //   scrollTrigger: {
-      //     trigger: '.wrap',
-      //     toggleActions: 'play none none none',
-      //     start: '400px 70%',
-      //     end: '800px, 70%',
-      //     markers: false,
-      //     scrub: 2,
-      //   },
-      // });
     }
   }
-
- 
+  
 }

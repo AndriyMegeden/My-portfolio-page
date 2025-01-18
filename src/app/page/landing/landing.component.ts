@@ -28,82 +28,82 @@ export class LandingComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       gsap.registerPlugin(ScrollTrigger);
 
-      this.smoothScroll('.content', '.wrapper', 1);
+      // this.smoothScroll('.content', '.wrapper', 1);
     }
   }
 
-  smoothScroll(
-    contentSelector: string,
-    wrapperSelector: string,
-    smoothness: number
-  ): void {
-    const content = document.querySelector(contentSelector) as HTMLElement;
-    const wrapper = document.querySelector(wrapperSelector) as HTMLElement;
+  // smoothScroll(
+  //   contentSelector: string,
+  //   wrapperSelector: string,
+  //   smoothness: number
+  // ): void {
+  //   const content = document.querySelector(contentSelector) as HTMLElement;
+  //   const wrapper = document.querySelector(wrapperSelector) as HTMLElement;
 
-    if (!content || !wrapper) {
-      console.error('Content or wrapper element not found');
-      return;
-    }
+  //   if (!content || !wrapper) {
+  //     console.error('Content or wrapper element not found');
+  //     return;
+  //   }
 
-    gsap.set(wrapper, {
-      overflow: 'hidden',
-      position: 'fixed',
-      height: '100%',
-      width: '100%',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-    });
+  //   gsap.set(wrapper, {
+  //     overflow: 'hidden',
+  //     position: 'fixed',
+  //     height: '100%',
+  //     width: '100%',
+  //     top: 0,
+  //     left: 0,
+  //     right: 0,
+  //     bottom: 0,
+  //   });
 
-    gsap.set(content, { overflow: 'visible', width: '100%' });
+  //   gsap.set(content, { overflow: 'visible', width: '100%' });
 
-    let height: number;
-    const getProp = gsap.getProperty(content);
-    const setProp = gsap.quickSetter(content, 'y', 'px');
-    const setScroll = ScrollTrigger.getScrollFunc(window);
+  //   let height: number;
+  //   const getProp = gsap.getProperty(content);
+  //   const setProp = gsap.quickSetter(content, 'y', 'px');
+  //   const setScroll = ScrollTrigger.getScrollFunc(window);
 
-    const refreshHeight = () => {
-      height = content.clientHeight;
-      document.body.style.height = `${height}px`;
-      return height - document.documentElement.clientHeight;
-    };
+  //   const refreshHeight = () => {
+  //     height = content.clientHeight;
+  //     document.body.style.height = `${height}px`;
+  //     return height - document.documentElement.clientHeight;
+  //   };
 
-    ScrollTrigger.addEventListener('refresh', () => {
-      content.style.overflow = 'visible';
-    });
-    ScrollTrigger.defaults({ scroller: content });
+  //   ScrollTrigger.addEventListener('refresh', () => {
+  //     content.style.overflow = 'visible';
+  //   });
+  //   ScrollTrigger.defaults({ scroller: content });
 
-    ScrollTrigger.scrollerProxy(content, {
-      scrollTop(value) {
-        if (arguments.length && value !== undefined) {
-          setProp(-value);
-          setScroll(value);
-        }
-        return -getProp('y') as number;
-      },
-      scrollHeight: () => document.body.scrollHeight,
-      getBoundingClientRect: () => ({
-        top: 0,
-        left: 0,
-        width: window.innerWidth,
-        height: window.innerHeight,
-      }),
-    });
+  //   ScrollTrigger.scrollerProxy(content, {
+  //     scrollTop(value) {
+  //       if (arguments.length && value !== undefined) {
+  //         setProp(-value);
+  //         setScroll(value);
+  //       }
+  //       return -getProp('y') as number;
+  //     },
+  //     scrollHeight: () => document.body.scrollHeight,
+  //     getBoundingClientRect: () => ({
+  //       top: 0,
+  //       left: 0,
+  //       width: window.innerWidth,
+  //       height: window.innerHeight,
+  //     }),
+  //   });
 
-    ScrollTrigger.create({
-      animation: gsap.fromTo(
-        content,
-        { y: 0 },
-        {
-          y: () => document.documentElement.clientHeight - height,
-          ease: 'none',
-        }
-      ),
-      scroller: window,
-      start: 0,
-      end: refreshHeight,
-      scrub: smoothness,
-    });
-  }
+  //   ScrollTrigger.create({
+  //     animation: gsap.fromTo(
+  //       content,
+  //       { y: 0 },
+  //       {
+  //         y: () => document.documentElement.clientHeight - height,
+  //         ease: "power1.in",
+  //       }
+  //     ),
+  //     scroller: window,
+  //     start: 0,
+  //     end: refreshHeight,
+  //     scrub: smoothness,
+  //   });
+  // }
 }
