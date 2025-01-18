@@ -41,28 +41,50 @@ export class FirstPartComponent implements AfterViewInit {
       gsap.from('.git-logo', { opacity: 0, duration: 1 });
       gsap.from('.git-commit, .button', { duration: 1, y: 300 });
 
-      gsap.from('.img', {
-        opacity: 0,
-        y: 100,
-        stagger: { amount: 1 },
+
+      gsap.timeline({
         scrollTrigger: {
           trigger: '.logotypes',
           start: 'bottom 92%',
           toggleActions: 'play none none none',
           markers: false,
-        },
-      });
-      gsap.from('.technology-text', {
+        }
+      }).from('.technology-text', {
         opacity: 0,
         y: 100,
         duration: 1,
-        scrollTrigger: {
-          trigger: '.technology-text',
-          start: 'top 98%',
-          toggleActions: 'play none none none',
-          markers: false,
-        },
-      });
+        delay: 0,
+      }).from('.img', {
+        opacity: 0,
+        y: -100,
+        stagger: { amount: 1 },
+        duration: 1,
+      })
+
+     
+
+      // gsap.from('.img', {
+      //   opacity: 0,
+      //   y: 100,
+      //   stagger: { amount: 1 },
+      //   scrollTrigger: {
+      //     trigger: '.logotypes',
+      //     start: 'bottom 92%',
+      //     toggleActions: 'play none none none',
+      //     markers: false,
+      //   },
+      // });
+      // gsap.from('.technology-text', {
+      //   opacity: 0,
+      //   y: 100,
+      //   duration: 1,
+      //   scrollTrigger: {
+      //     trigger: '.technology-text',
+      //     start: 'top 98%',
+      //     toggleActions: 'play none none none',
+      //     markers: false,
+      //   },
+      // });
     }
    
   }
