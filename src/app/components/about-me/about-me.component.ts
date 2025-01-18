@@ -56,18 +56,19 @@ export class AboutMeComponent implements AfterViewInit {
             markers: false,
           },
         });
-      gsap.from('.description', {
-        ease: "back.out(7)",
-        opacity: 0,
-        y: 100,
-        duration: 2,
-        scrollTrigger: {
-          trigger: '.wrap',
-          toggleActions: 'play none none none',
-          start: '400px 70%',
-          markers: false,
-        },
-      });
+      // gsap.from('.description', {
+      //   opacity: 0,
+      //   y: 100,
+      //   duration: 2,
+      //   scrollTrigger: {
+      //     trigger: '.wrap',
+      //     toggleActions: 'play none none none',
+      //     start: '400px 70%',
+      //     end: '800px, 70%',
+      //     markers: false,
+      //     scrub: 2,
+      //   },
+      // });
     }
   }
 
