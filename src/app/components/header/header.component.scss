@@ -1,11 +1,10 @@
 .header {
   width: 100%;
-  display: flex;
   height: 100px;
   border-bottom: 1px solid var(--border-dark);
   background-color: var(--shadow);
   position: fixed;
-  z-index: 100;
+  z-index: 300;
   .logo {
     img {
       width: 60px;
@@ -19,6 +18,24 @@
       span {
         font-family: Rubik;
         font-size: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    .logo {
+      img {
+        width: 60px;
+      }
+      .text {
+        .bold {
+          font-size: 22px;
+        }
+        span {
+          font-size: 17px;
+        }
       }
     }
   }

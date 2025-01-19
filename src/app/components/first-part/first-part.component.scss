@@ -6,7 +6,6 @@
     color: var(--gray);
   }
   .text {
-    text-align: center;
     line-height: 1.5;
     .title {
       display: inline-block;
@@ -22,28 +21,22 @@
     }
   }
   .content {
-    width: 100%;
     .git-logo {
       background: url("/assets/images/back-color.svg") 530px / 604px 597px
         no-repeat;
       background-position: center -100px;
-      width: 100%;
       height: auto;
       img {
-        width: 100%;
         max-width: 400px;
       }
     }
     .button {
       top: 720px;
-      position: absolute;
     }
     .git-commit {
-      width: 100%;
       max-width: 900px;
       border: 1px solid var(--border-dark);
       border-radius: 5px;
-      position: absolute;
       top: 570px;
       .top-bar {
         height: 50px;
@@ -65,9 +58,9 @@
         }
       }
       .files {
-        width: 100%;
         background-color: var(--background);
-
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
         .file {
           height: 40px;
           img {
@@ -85,11 +78,8 @@
     }
     .technologies {
       max-width: 900px;
-      width: 100%;
       overflow: hidden;
       .logotypes {
-        flex-wrap: wrap;
-        width: 100%;
         img {
           width: 80px;
           filter: brightness(0) saturate(100%) invert(95%) sepia(52%)
@@ -98,6 +88,45 @@
       }
       .span {
         font-size: 18px;
+      }
+    }
+  }
+}
+@media (max-width: 992px) {
+  .main-container {
+    .text {
+      line-height: 1.5;
+      .title {
+        font-size: 50px;
+      }
+      .subtitle {
+        font-size: 30px;
+      }
+    }
+    .content {
+      .button {
+        top: 670px;
+      }
+      .git-commit {
+        top: 520px;
+        border: none;
+        .top-bar {
+          border: 1px solid var(--border-dark);
+        }
+      }
+      .files {
+        border: 1px solid var(--border-dark);
+      }
+      .technologies {
+        .logotypes {
+          img {
+            margin-left: 24px;
+            margin-right: 24px;
+          }
+        }
+        .span {
+          font-size: 18px;
+        }
       }
     }
   }
