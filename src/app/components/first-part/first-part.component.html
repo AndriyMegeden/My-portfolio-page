@@ -25,7 +25,7 @@
         <img src="assets/images/link.svg" alt="" />
       </button>
     </div>
-      <div class="git-commit w-100 p-absolute lg-p-lr-24">
+      <div class="git-commit w-100 p-absolute lg-p-lr-24 sm-p-lr-15">
         <div class="top-bar d-flex align-center justify-space-between p-10">
           <div class="left d-flex justify-center">
             <img class="m-r-8" src="assets/images/git-logo.svg" alt="" />
@@ -50,7 +50,7 @@
               <span>{{ file.name }}</span>
             </div>
             <div class="time d-flex justify-space-between">
-              <span class="gray">{{ file.commitMessage }}</span>
+              <span class="gray commit">{{ file.commitMessage }}</span>
               <span class="gray">{{ file.timeAgo }}</span>
             </div>
           </div>
@@ -66,7 +66,7 @@
       >
         <img
           *ngFor="let logotype of logotypes"
-          class="img m-b-50"
+          class="img m-b-50 sm-m-b-40"
           [src]="logotype.image"
           [style.border-radius]="
             logotype.image === 'assets/images/js-logo.svg' ||

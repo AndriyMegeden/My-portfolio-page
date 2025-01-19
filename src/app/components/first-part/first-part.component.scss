@@ -95,7 +95,6 @@
 @media (max-width: 992px) {
   .main-container {
     .text {
-      line-height: 1.5;
       .title {
         font-size: 50px;
       }
@@ -105,10 +104,10 @@
     }
     .content {
       .button {
-        top: 670px;
+        top: 638px;
       }
       .git-commit {
-        top: 520px;
+        top: 485px;
         border: none;
         .top-bar {
           border: 1px solid var(--border-dark);
@@ -126,6 +125,79 @@
         }
         .span {
           font-size: 18px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 576px) {
+  .main-container {
+    .text {
+      line-height: 1.3;
+      .title {
+        font-size: 35px;
+      }
+      .subtitle {
+        font-size: 20px;
+      }
+    }
+    .content {
+      .git-logo {
+        background-position: center -120px;
+        img {
+          max-width: 300px;
+        }
+      }
+      .button {
+        top: 538px;
+      }
+      .git-commit {
+        top: 385px;
+        .top-bar {
+          height: 50px;
+          .left {
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+          .right {
+            display: none;
+            // img {
+            //   width: 20px;
+            //   height: 20px;
+            // }
+          }
+        }
+        .files {
+          background-color: var(--background);
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          .file {
+            height: 40px;
+            img {
+              width: 20px;
+              height: 20px;
+            }
+            .time {
+              width: auto;
+              .commit{
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      .technologies {
+        .logotypes {
+          img {
+            width: 50px;
+            margin-left: 15px;
+            margin-right: 15px;
+          }
+          .span {
+            font-size: 18px;
+          }
         }
       }
     }
