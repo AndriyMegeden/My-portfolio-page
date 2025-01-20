@@ -1,16 +1,16 @@
-<div class="wrap d-flex justify-center align-center flex-d-col" #wrap>
-  <div class="about-me d-flex">
-    <div *ngFor="let letter of letters" class="letter">
+<div class="wrap w-100 p-relative d-flex justify-center align-center flex-d-col border-radius-20" #wrap>
+  <div class="about-me d-flex d-wrap">
+    <div *ngFor="let letter of letters" class="letter overflow">
       <span
-        [style.margin-right]="letter.letter === 't' ? '70px' : '0px'"
+        [style.margin-right]="letter.letter === 't' ? marginRight : '0px'"
         class="span"
         >{{ letter.letter }}</span
       >
     </div>
   </div>
-  <div class="description">
-    <img class="earth" src="assets/images/earth.svg" alt="" />
-    <div class="text p-16">
+  <div class="description p-relative w-100">
+    <img class="earth p-absolute w-100" src="assets/images/earth.svg" alt="" />
+    <div class="text p-absolute w-100 t-center border-radius-20 p-16">
         <span>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
             quibusdam quasi laborum dolore aperiam molestias reiciendis accusantium

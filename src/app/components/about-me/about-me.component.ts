@@ -3,6 +3,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  HostListener,
   Inject,
   PLATFORM_ID,
   ViewChild,
@@ -27,6 +28,17 @@ export class AboutMeComponent implements AfterViewInit {
     private elRef: ElementRef,
     @Inject(PLATFORM_ID) private platformid: Object
   ) {}
+
+
+  marginRight: string = window.innerWidth <= 768 ? '40px' : '70px';
+  // слухає подію прям звідси
+  // Він прив'язує обробник події до елемента, на якому знаходиться компонент
+  // коли змінюється розмір вікна метод onResize викликається 
+  @HostListener('window:resize')
+  onResize(): void {
+    this.marginRight = window.innerWidth <= 768 ? '40px' : '70px';
+  }
+
 
   ngAfterViewInit(): void {
     gsap.registerPlugin(ScrollTrigger);

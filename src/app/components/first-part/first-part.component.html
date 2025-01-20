@@ -25,7 +25,7 @@
         <img src="assets/images/link.svg" alt="" />
       </button>
     </div>
-      <div class="git-commit w-100 p-absolute lg-p-lr-24 sm-p-lr-15">
+      <div class="git-commit w-100 p-absolute lg-p-lr-24 border-radius-5 sm-p-lr-15">
         <div class="top-bar d-flex align-center justify-space-between p-10">
           <div class="left d-flex justify-center">
             <img class="m-r-8" src="assets/images/git-logo.svg" alt="" />
@@ -59,14 +59,14 @@
    
 
     <div
-      class="technologies w-100 d-flex flex-d-col justify-center align-center"
+      class="technologies w-100 overflow d-flex flex-d-col justify-center align-center"
     >
       <div
         class="logotypes d-wrap w-100 d-flex flex-d-row lg-justify-center justify-space-between "
       >
         <img
           *ngFor="let logotype of logotypes"
-          class="img m-b-50 m-lr-24 sm-m-b-40 sm-m-lr-15"
+          class="img img-technology m-b-50 m-lr-24 sm-m-b-40 sm-m-lr-15"
           [src]="logotype.image"
           [style.border-radius]="
             logotype.image === 'assets/images/js-logo.svg' ||

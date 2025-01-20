@@ -45,7 +45,7 @@ export class FirstPartComponent implements AfterViewInit {
       gsap.timeline({
         scrollTrigger: {
           trigger: '.logotypes',
-          start: 'bottom 92%',
+          start: 'bottom 99%',
           toggleActions: 'play none none none',
           markers: false,
         }
@@ -60,31 +60,6 @@ export class FirstPartComponent implements AfterViewInit {
         stagger: { amount: 1 },
         duration: 1,
       })
-
-     
-
-      // gsap.from('.img', {
-      //   opacity: 0,
-      //   y: 100,
-      //   stagger: { amount: 1 },
-      //   scrollTrigger: {
-      //     trigger: '.logotypes',
-      //     start: 'bottom 92%',
-      //     toggleActions: 'play none none none',
-      //     markers: false,
-      //   },
-      // });
-      // gsap.from('.technology-text', {
-      //   opacity: 0,
-      //   y: 100,
-      //   duration: 1,
-      //   scrollTrigger: {
-      //     trigger: '.technology-text',
-      //     start: 'top 98%',
-      //     toggleActions: 'play none none none',
-      //     markers: false,
-      //   },
-      // });
     }
    
   }
