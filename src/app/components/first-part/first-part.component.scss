@@ -116,17 +116,6 @@
       .files {
         border: 1px solid var(--border-dark);
       }
-      .technologies {
-        .logotypes {
-          img {
-            margin-left: 24px;
-            margin-right: 24px;
-          }
-        }
-        .span {
-          font-size: 18px;
-        }
-      }
     }
   }
 }
@@ -143,45 +132,27 @@
     }
     .content {
       .git-logo {
-        background-position: center -120px;
+        background-position: center -110px;
         img {
           max-width: 300px;
         }
       }
       .button {
         top: 538px;
+        max-width: 160px;
       }
       .git-commit {
         top: 385px;
         .top-bar {
-          height: 50px;
-          .left {
-            img {
-              width: 20px;
-              height: 20px;
-            }
-          }
           .right {
             display: none;
-            // img {
-            //   width: 20px;
-            //   height: 20px;
-            // }
           }
         }
         .files {
-          background-color: var(--background);
-          border-bottom-left-radius: 5px;
-          border-bottom-right-radius: 5px;
           .file {
-            height: 40px;
-            img {
-              width: 20px;
-              height: 20px;
-            }
             .time {
               width: auto;
-              .commit{
+              .commit {
                 display: none;
               }
             }
@@ -192,11 +163,6 @@
         .logotypes {
           img {
             width: 50px;
-            margin-left: 15px;
-            margin-right: 15px;
-          }
-          .span {
-            font-size: 18px;
           }
         }
       }
