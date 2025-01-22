@@ -96,3 +96,35 @@
     }
   }
 }
+@media (max-width: 992px) {
+  .footer-wrap {
+    .telegram-container {
+      .content {
+        .title-tg {
+          font-size: 46px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 576px) {
+  .footer-wrap {
+    .telegram-container {
+      background-size: 300px ;
+      .content {
+        .title-tg {
+          font-size: 30px;
+        }
+        .button {
+          height: 40px;
+          max-width: 150px;
+        }
+      }
+    }
+    .button-top{
+      .bottom-text{
+        font-size: 14px;
+      }
+    }
+  }
+}
