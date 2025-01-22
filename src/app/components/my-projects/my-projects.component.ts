@@ -75,7 +75,7 @@ export class MyProjectsComponent implements AfterViewInit {
         duration: 1,
       }).from(['.prev-arrow', '.next-arrow'], {
         opacity: 0,
-        x: (index) => (index === 0 ? -100 : 100), // різні напрямки для стрілок
+        x: (index) => (index === 0 ?  100 :  -100), // різні напрямки для стрілок
         duration: 1,
       });
     }
