@@ -53,7 +53,7 @@ export class FooterComponent implements AfterViewInit {
         opacity: 0,
       }).from(['.bottom-text', '.arrow-top'], {
         opacity: 0,
-        x: (index) => (index === 0 ? -100 : 100), // різні напрямки для стрілок
+        x: (index) => (index === 0 ?  100 :  -100), // різні напрямки для стрілок
         duration: 1,
       });
     }
