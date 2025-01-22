@@ -600,6 +600,9 @@
         &.xl-flex-d-col{
             flex-direction: column;
         }
+        &.xl-flex-d-col-rev{
+            flex-direction: column-reverse;
+        }
         &.xl-justify-center{
             justify-content: center;
         }
@@ -950,6 +953,10 @@
     }
     .xl-p-lr-20{
         padding: 0 20px;
+    }
+     // Padding top 
+     .xl-p-t-10{
+        padding-top: 10px;
     }
     // Padding top bottom
     .xl-p-tb-0{
@@ -2335,7 +2342,7 @@
         padding: 15px;
     }
     .sm-p-20{
-        padding: 20px;
+        padding: 20px !important;
     }
     // Padding left right
     .sm-p-lr-0{

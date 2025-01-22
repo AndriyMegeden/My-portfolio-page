@@ -37,6 +37,7 @@ export class AboutMeComponent implements AfterViewInit {
   @HostListener('window:resize')
   onResize(): void {
     this.marginRight = window.innerWidth <= 768 ? '40px' : '70px';
+    this.marginRight = window.innerWidth <= 576 ? '20px' : '40px';
   }
 
 

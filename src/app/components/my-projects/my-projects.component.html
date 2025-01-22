@@ -1,11 +1,11 @@
 <div class="wrap d-flex justify-center flex-d-col m-b-150">
-  <div class="text d-flex flex-d-col m-b-60">
+  <div class="text d-flex flex-d-col m-b-60 sm-m-b-40">
     <h1 class="explore">
       <span class="title">Explore My Works</span>
     </h1>
   </div>
-  <div class="slider d-flex justify-center align-center p-lr-24">
-    <div class="carousel-contaner d-flex justify-center align-center">
+  <div class="slider d-flex justify-center align-center p-lr-24 sm-p-lr-15">
+    <div class="carousel-contaner d-flex justify-center align-center xl-justify-space-between">
       <button class="custom-arrow prev-arrow" (click)="slickModal.slickPrev()">
         <img src="assets/images/arrow.svg" />
       </button>
@@ -16,22 +16,25 @@
         (init)="slickInit($event)"
       >
         <div ngxSlickItem *ngFor="let slide of slider">
-          <div  class="content p-lr-24 d-flex flex-d-row align-center justify-center">
-            <div class="management m-r-50">
-              <div class="title m-b-10 ">
-                <span>{{slide.title}}</span>
+          <div  class="content p-lr-24 lg-p-lr-0 d-flex flex-d-row xl-flex-d-col align-center justify-center lg-m-lr-5">
+            <div class="management m-r-50 xl-m-r-0 d-flex xl-justify-space-between xl-align-center xl-m-b-20">
+              <div class="managment-text xl-m-r-10">
+                <div class="title m-b-10 xl-m-b-0">
+                  <span>{{slide.title}}</span>
+                </div>
+                <div class="subtitle">
+                  <span>{{slide.subtitle}}</span>
+                </div>
               </div>
-              <div class="subtitle">
-                <span>{{slide.subtitle}}</span>
-              </div>
-              <div class="button m-t-20" (click)="navigateToProject(slide.link)" (mouseenter)="enter()" (mouseleave)="leave()">
+              <div class="button m-t-20 xl-m-t-0" (click)="navigateToProject(slide.link)" (mouseenter)="enter()" (mouseleave)="leave()">
                 <button class="d-flex justify-center align-center">
                   <span class="m-r-8"> Visit </span>
                   <img src="assets/images/visit.svg" alt="" />
                 </button>
               </div>
             </div>
-            <div class="img">
+            
+            <div class="img sm-p-20">
               <img [src]="slide.slide" alt="Project image" />
             </div>
           </div>
