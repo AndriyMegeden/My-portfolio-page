@@ -4,36 +4,46 @@ import {
   Component,
   ElementRef,
   HostListener,
+  inject,
   Inject,
   OnDestroy,
+  OnInit,
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Subscription } from 'rxjs';
 import { DeviceService } from 'src/app/services/device.service';
+import { TranslationService } from 'src/app/services/Translation.service';
+
+
 import { firstPartSettings } from 'src/static/first-part.settings';
 
 @Component({
   selector: 'app-first-part',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './first-part.component.html',
   styleUrl: './first-part.component.scss',
 })
-export class FirstPartComponent implements AfterViewInit, OnDestroy {
-  constructor(
-    @Inject(PLATFORM_ID) private platformid: Object,
-    private isDevice: DeviceService
-  ) {}
-
+export class FirstPartComponent implements AfterViewInit, OnDestroy, OnInit {
   // імпортуємо дані з файлу з настройками
   public files = firstPartSettings.files;
   public logotypes = firstPartSettings.logotypes;
-  private subscription: Subscription | null = null;
+
   public isMobile = false;
+  private subscription: Subscription | null = null;
   @ViewChild('hover') hoverBTN!: ElementRef;
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformid: Object,
+    private isDevice: DeviceService,
+    private translationService: TranslationService
+  ) {}
+
+
 
   // навігація на іншу сторінку
   navigateToGitHub(event: MouseEvent) {
@@ -47,7 +57,7 @@ export class FirstPartComponent implements AfterViewInit, OnDestroy {
       this.subscription = this.isDevice.isMobile$.subscribe((isMobile) => {
         this.isMobile = isMobile;
       });
-    // перед ініцалізацією вертає прокрутку на верх 
+      // перед ініцалізацією вертає прокрутку на верх
       window.onbeforeunload = function () {
         window.scrollTo(0, 0);
       };
@@ -81,6 +91,13 @@ export class FirstPartComponent implements AfterViewInit, OnDestroy {
         });
     }
   }
+
+  ngOnInit(): void {
+    // ініціалізуєм мову по дефолту 
+    this.translationService.initDefaultLanguage();
+  }
+
+
   // відписуємось
   ngOnDestroy(): void {
     if (this.subscription) {
@@ -102,4 +119,5 @@ export class FirstPartComponent implements AfterViewInit, OnDestroy {
       ease: 'power2.out',
     });
   }
+
 }

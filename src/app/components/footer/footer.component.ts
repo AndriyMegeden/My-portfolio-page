@@ -1,13 +1,15 @@
 import { isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Subscription } from 'rxjs';
 import { DeviceService } from 'src/app/services/device.service';
+import { TranslationService } from 'src/app/services/Translation.service';
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
@@ -17,7 +19,8 @@ export class FooterComponent implements AfterViewInit {
 
   constructor(
     @Inject(PLATFORM_ID) private platformid: Object,
-    private isDevice: DeviceService
+    private isDevice: DeviceService,
+       private translationService: TranslationService
   ) {}
   openTg() {
     window.open('https://t.me/Andriyko_meged', '_blank');
@@ -29,52 +32,6 @@ export class FooterComponent implements AfterViewInit {
     });
   }
 
-  // ngAfterViewInit(): void {
-  //   gsap.registerPlugin(ScrollTrigger);
-  //   if (isPlatformBrowser(this.platformid)) {
-  //     // провірка на мобільні пристрої
-  //     this.subscription = this.isDevice.isMobile$.subscribe((isMobile) => {
-  //       this.isMobile = isMobile;
-  //     });
-
-  //     const tlForTg = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: '.footer-wrap',
-  //         start: 'top 65%',
-  //         toggleActions: 'play none none none',
-  //         markers: false,
-  //       },
-  //     });
-  //     tlForTg
-  //       .from('.telegram-container', {
-  //         opacity: 0,
-  //         y: 100,
-  //       })
-  //       .from(['.title-tg', '.contact-btn'], {
-  //         opacity: 0,
-  //         x: (index) => (index === 0 ? -100 : 100), // різні напрямки для стрілок
-  //         duration: 1,
-  //       });
-
-  //     const tlForTop = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: '.button-top',
-  //         start: 'top 95%',
-  //         toggleActions: 'play none none none',
-  //         markers: false,
-  //       },
-  //     });
-  //     tlForTop
-  //       .from('.button-top', {
-  //         opacity: 0,
-  //       })
-  //       .from(['.bottom-text', '.arrow-top'], {
-  //         opacity: 0,
-  //         x: (index) => (index === 0 ? 100 : -100), // різні напрямки для стрілок
-  //         duration: 1,
-  //       });
-  //   }
-  // }
 
   ngAfterViewInit(): void {
     gsap.registerPlugin(ScrollTrigger);

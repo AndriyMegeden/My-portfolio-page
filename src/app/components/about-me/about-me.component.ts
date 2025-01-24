@@ -5,21 +5,24 @@ import {
   ElementRef,
   HostListener,
   Inject,
+  OnInit,
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TranslationService } from 'src/app/services/Translation.service';
 import { aboutMeSettings } from 'src/static/about-me.settings';
 
 @Component({
   selector: 'app-about-me',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './about-me.component.html',
   styleUrls: ['./about-me.component.scss'], // Виправлено імпорт стилів
 })
-export class AboutMeComponent implements AfterViewInit {
+export class AboutMeComponent implements AfterViewInit, OnInit {
   @ViewChild('wrap') wrap!: ElementRef;
 
   // Імпортуємо дані з файлу з настройками
@@ -30,7 +33,8 @@ export class AboutMeComponent implements AfterViewInit {
 
   constructor(
     private elRef: ElementRef,
-    @Inject(PLATFORM_ID) private platformid: Object
+    @Inject(PLATFORM_ID) private platformid: Object,
+    private translationService: TranslationService
   ) {
     // Виконується тільки в браузері
     if (isPlatformBrowser(this.platformid)) {
@@ -44,6 +48,11 @@ export class AboutMeComponent implements AfterViewInit {
     if (isPlatformBrowser(this.platformid)) {
       this.updateMarginRight();
     }
+  }
+
+  ngOnInit(): void {
+    // ініціалізуєм мову по дефолту 
+    this.translationService.initDefaultLanguage();
   }
 
   ngAfterViewInit(): void {

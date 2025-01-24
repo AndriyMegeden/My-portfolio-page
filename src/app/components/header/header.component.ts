@@ -9,6 +9,8 @@ import {
 } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TranslationService } from 'src/app/services/Translation.service';
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -22,7 +24,8 @@ export class HeaderComponent implements AfterViewInit {
 
   constructor(
     private elRef: ElementRef,
-    @Inject(PLATFORM_ID) private platformid: Object
+    @Inject(PLATFORM_ID) private platformid: Object,
+    private translationService: TranslationService
   ) {}
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformid)) {
@@ -60,5 +63,10 @@ export class HeaderComponent implements AfterViewInit {
       duration: 0.6,
       scale: 1,
     });
+  }
+
+  // зміна мови
+  changeLanguage(lang: string): void {
+    this.translationService.changeLanguage(lang);
   }
 }

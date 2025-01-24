@@ -12,17 +12,20 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { myProjectSettings } from 'src/static/my-projects.settings';
 import { Subscription } from 'rxjs';
 import { DeviceService } from 'src/app/services/device.service';
+import { TranslationService } from 'src/app/services/Translation.service';
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-my-projects',
   standalone: true,
-  imports: [SlickCarouselModule, CommonModule],
+  imports: [SlickCarouselModule, CommonModule, TranslateModule],
   templateUrl: './my-projects.component.html',
   styleUrls: ['./my-projects.component.scss'],
 })
 export class MyProjectsComponent implements AfterViewInit, OnDestroy {
   constructor(
     @Inject(PLATFORM_ID) private platformid: Object,
-    private isDevice: DeviceService
+    private isDevice: DeviceService,
+    private translationService: TranslationService
   ) {}
 
   // імпортуємо дані з файлу з настройками
