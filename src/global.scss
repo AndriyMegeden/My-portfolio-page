@@ -37,7 +37,9 @@
     border: none;
     font-size: 17px;
     span {
+      transition-delay: 0.1s;
       font-size: 17px;
+      color: var(--black);
     }
     img {
       transition-delay: 0.1s;
@@ -55,7 +57,10 @@
     text-decoration: none;
     transition-delay: 0.1s;
     background-color: var(--deep-blue);
-    color: var(--white-opacity);
+    span{
+      transition-delay: 0.1s;
+      color: var(--white-opacity);
+    }
     img {
       filter: brightness(0) saturate(100%) invert(95%) sepia(52%) saturate(0%)
         hue-rotate(229deg) brightness(70%) contrast(102%);
@@ -68,6 +73,7 @@
     -webkit-tap-highlight-color: transparent;
     outline: none;
     text-decoration: none;
+    
     button:hover {
       background: transparent;
       user-select: none;
