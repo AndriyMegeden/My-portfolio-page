@@ -23,7 +23,9 @@
       .button {
         box-shadow: none;
         button:hover {
-          color: var(--black);
+          span{
+            color: var(--black) !important;
+          }
           background-color: var(--white);
           img {
             filter: none;
