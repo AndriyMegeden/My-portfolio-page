@@ -10,10 +10,6 @@
 
 // buttons
 .button {
-  background: transparent;
-  user-select: none;
-  box-shadow: none;
-  -webkit-tap-highlight-color: transparent;
   outline: none;
   text-decoration: none;
   background-color: var(--white);
@@ -23,10 +19,6 @@
   border-radius: 10px;
   z-index: 20;
   button {
-    background: transparent;
-    user-select: none;
-    box-shadow: none;
-    -webkit-tap-highlight-color: transparent;
     outline: none;
     text-decoration: none;
     background-color: var(--white);
@@ -49,10 +41,6 @@
     }
   }
   button:hover {
-    background: transparent;
-    user-select: none;
-    box-shadow: none;
-    -webkit-tap-highlight-color: transparent;
     outline: none;
     text-decoration: none;
     transition-delay: 0.1s;
@@ -67,18 +55,10 @@
     }
   }
   &.no-hover {
-    background: transparent;
-    user-select: none;
-    box-shadow: none;
-    -webkit-tap-highlight-color: transparent;
     outline: none;
     text-decoration: none;
     
     button:hover {
-      background: transparent;
-      user-select: none;
-      box-shadow: none;
-      -webkit-tap-highlight-color: transparent;
       outline: none;
       text-decoration: none;
       background-color: var(--white);
