@@ -29,6 +29,53 @@ export class FooterComponent implements AfterViewInit {
     });
   }
 
+  // ngAfterViewInit(): void {
+  //   gsap.registerPlugin(ScrollTrigger);
+  //   if (isPlatformBrowser(this.platformid)) {
+  //     // провірка на мобільні пристрої
+  //     this.subscription = this.isDevice.isMobile$.subscribe((isMobile) => {
+  //       this.isMobile = isMobile;
+  //     });
+
+  //     const tlForTg = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: '.footer-wrap',
+  //         start: 'top 65%',
+  //         toggleActions: 'play none none none',
+  //         markers: false,
+  //       },
+  //     });
+  //     tlForTg
+  //       .from('.telegram-container', {
+  //         opacity: 0,
+  //         y: 100,
+  //       })
+  //       .from(['.title-tg', '.contact-btn'], {
+  //         opacity: 0,
+  //         x: (index) => (index === 0 ? -100 : 100), // різні напрямки для стрілок
+  //         duration: 1,
+  //       });
+
+  //     const tlForTop = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: '.button-top',
+  //         start: 'top 95%',
+  //         toggleActions: 'play none none none',
+  //         markers: false,
+  //       },
+  //     });
+  //     tlForTop
+  //       .from('.button-top', {
+  //         opacity: 0,
+  //       })
+  //       .from(['.bottom-text', '.arrow-top'], {
+  //         opacity: 0,
+  //         x: (index) => (index === 0 ? 100 : -100), // різні напрямки для стрілок
+  //         duration: 1,
+  //       });
+  //   }
+  // }
+
   ngAfterViewInit(): void {
     gsap.registerPlugin(ScrollTrigger);
     if (isPlatformBrowser(this.platformid)) {
@@ -36,8 +83,8 @@ export class FooterComponent implements AfterViewInit {
       this.subscription = this.isDevice.isMobile$.subscribe((isMobile) => {
         this.isMobile = isMobile;
       });
-
-      const tlForTg = gsap.timeline({
+  
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: '.footer-wrap',
           start: 'top 65%',
@@ -45,36 +92,29 @@ export class FooterComponent implements AfterViewInit {
           markers: false,
         },
       });
-      tlForTg
-        .from('.telegram-container', {
-          opacity: 0,
-          y: 100,
-        })
-        .from(['.title-tg', '.contact-btn'], {
-          opacity: 0,
-          x: (index) => (index === 0 ? -100 : 100), // різні напрямки для стрілок
-          duration: 1,
-        });
-
-      const tlForTop = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.button-top',
-          start: 'top 95%',
-          toggleActions: 'play none none none',
-          markers: false,
-        },
+  
+      // Додаємо першу анімацію (tlForTg)
+      tl.from('.telegram-container', {
+        opacity: 0,
+        y: 100,
+      })
+      .from(['.title-tg', '.contact-btn'], {
+        opacity: 0,
+        x: (index) => (index === 0 ? -100 : 100), // різні напрямки для стрілок
+        duration: 1,
+      })
+      // Додаємо другу анімацію (tlForTop)
+      .from('.button-top', {
+        opacity: 0,
+      })
+      .from(['.bottom-text', '.arrow-top'], {
+        opacity: 0,
+        x: (index) => (index === 0 ? 100 : -100), // різні напрямки для стрілок
+        duration: 1,
       });
-      tlForTop
-        .from('.button-top', {
-          opacity: 0,
-        })
-        .from(['.bottom-text', '.arrow-top'], {
-          opacity: 0,
-          x: (index) => (index === 0 ? 100 : -100), // різні напрямки для стрілок
-          duration: 1,
-        });
     }
   }
+  
 
   enter() {
     gsap.to('.button', {
