@@ -14,7 +14,7 @@
       <img class="w-100" src="assets/images/git-logo.svg" alt="" />
     </div>
     <div
-      (click)="navigateToGitHub()"
+      (click)="navigateToGitHub($event)"
       #hoverBTN
       (mouseenter)="!isMobile && enter()"
       (mouseleave)="!isMobile && leave()"

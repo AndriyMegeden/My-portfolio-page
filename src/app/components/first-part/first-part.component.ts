@@ -36,7 +36,8 @@ export class FirstPartComponent implements AfterViewInit, OnDestroy {
   @ViewChild('hover') hoverBTN!: ElementRef;
 
   // навігація на іншу сторінку
-  navigateToGitHub() {
+  navigateToGitHub(event: MouseEvent) {
+    event.preventDefault();
     window.open('https://github.com/AndriyMegeden?tab=repositories', '_blank');
   }
 
