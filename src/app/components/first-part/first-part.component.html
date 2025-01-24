@@ -16,53 +16,55 @@
     <div
       (click)="navigateToGitHub()"
       #hoverBTN
-      (mouseenter)="enter()"
-      (mouseleave)="leave()"
+      (mouseenter)="!isMobile && enter()"
+      (mouseleave)="!isMobile && leave()"
       class="button p-absolute"
+      [class.no-hover]="isMobile"
     >
       <button class="d-flex justify-center align-center">
         <span class="m-r-8"> My GitHub </span>
         <img src="assets/images/link.svg" alt="" />
       </button>
     </div>
-      <div class="git-commit w-100 p-absolute lg-p-lr-24 border-radius-5 sm-p-lr-15">
-        <div class="top-bar d-flex align-center justify-space-between p-10">
-          <div class="left d-flex justify-center">
-            <img class="m-r-8" src="assets/images/git-logo.svg" alt="" />
-            <span class="m-r-8">Andriy</span>
-            <span class="gray m-r-15">fix</span>
-            <img src="assets/images/check.svg" alt="" />
-          </div>
-          <div class="right d-flex justify-center">
-            <span class="gray m-r-8">429eOff</span>
-            <span class="gray m-r-15">5 days ago</span>
-            <img class="m-r-5" src="assets/images/clock-arrow.svg" alt="" />
-            <span> 58 Commits </span>
-          </div>
+    <div
+      class="git-commit w-100 p-absolute lg-p-lr-24 border-radius-5 sm-p-lr-15"
+    >
+      <div class="top-bar d-flex align-center justify-space-between p-10">
+        <div class="left d-flex justify-center">
+          <img class="m-r-8" src="assets/images/git-logo.svg" alt="" />
+          <span class="m-r-8">Andriy</span>
+          <span class="gray m-r-15">fix</span>
+          <img src="assets/images/check.svg" alt="" />
         </div>
-        <div class="files w-100">
-          <div
-            *ngFor="let file of files"
-            class="file p-10 d-flex align-center justify-space-between"
-          >
-            <div class="name d-flex align-center">
-              <img class="m-r-10" [src]="file.imgSrc" alt="folder" />
-              <span>{{ file.name }}</span>
-            </div>
-            <div class="time d-flex justify-space-between">
-              <span class="gray commit">{{ file.commitMessage }}</span>
-              <span class="gray">{{ file.timeAgo }}</span>
-            </div>
+        <div class="right d-flex justify-center">
+          <span class="gray m-r-8">429eOff</span>
+          <span class="gray m-r-15">5 days ago</span>
+          <img class="m-r-5" src="assets/images/clock-arrow.svg" alt="" />
+          <span> 58 Commits </span>
+        </div>
+      </div>
+      <div class="files w-100">
+        <div
+          *ngFor="let file of files"
+          class="file p-10 d-flex align-center justify-space-between"
+        >
+          <div class="name d-flex align-center">
+            <img class="m-r-10" [src]="file.imgSrc" alt="folder" />
+            <span>{{ file.name }}</span>
+          </div>
+          <div class="time d-flex justify-space-between">
+            <span class="gray commit">{{ file.commitMessage }}</span>
+            <span class="gray">{{ file.timeAgo }}</span>
           </div>
         </div>
       </div>
-   
+    </div>
 
     <div
       class="technologies w-100 overflow d-flex flex-d-col justify-center align-center"
     >
       <div
-        class="logotypes d-wrap w-100 d-flex flex-d-row lg-justify-center justify-space-between "
+        class="logotypes d-wrap w-100 d-flex flex-d-row lg-justify-center justify-space-between"
       >
         <img
           *ngFor="let logotype of logotypes"

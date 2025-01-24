@@ -8,7 +8,6 @@
   box-sizing: border-box;
 }
 
-
 // buttons
 .button {
   background-color: var(--white);
@@ -25,7 +24,7 @@
     border-radius: 10px;
     border: none;
     font-size: 17px;
-    span{
+    span {
       font-size: 17px;
     }
     img {
@@ -40,9 +39,18 @@
     background-color: var(--deep-blue);
     color: var(--white-opacity);
     img {
-      filter: brightness(0) saturate(100%) invert(95%) sepia(52%)
-        saturate(0%) hue-rotate(229deg) brightness(70%)
-        contrast(102%);
+      filter: brightness(0) saturate(100%) invert(95%) sepia(52%) saturate(0%)
+        hue-rotate(229deg) brightness(70%) contrast(102%);
+    }
+  }
+  &.no-hover {
+    button:hover {
+      background-color: var(--white);
+      color: var(--black);
+
+      img {
+        filter: none;
+      }
     }
   }
 }

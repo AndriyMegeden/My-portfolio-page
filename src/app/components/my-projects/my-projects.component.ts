@@ -1,9 +1,17 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Inject,
+  OnDestroy,
+  PLATFORM_ID,
+} from '@angular/core';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { myProjectSettings } from 'src/static/my-projects.settings';
+import { Subscription } from 'rxjs';
+import { DeviceService } from 'src/app/services/device.service';
 @Component({
   selector: 'app-my-projects',
   standalone: true,
@@ -11,19 +19,24 @@ import { myProjectSettings } from 'src/static/my-projects.settings';
   templateUrl: './my-projects.component.html',
   styleUrls: ['./my-projects.component.scss'],
 })
-export class MyProjectsComponent implements AfterViewInit {
-  constructor(@Inject(PLATFORM_ID) private platformid: Object) {}
+export class MyProjectsComponent implements AfterViewInit, OnDestroy {
+  constructor(
+    @Inject(PLATFORM_ID) private platformid: Object,
+    private isDevice: DeviceService
+  ) {}
 
   // імпортуємо дані з файлу з настройками
   public slider = myProjectSettings.slider;
-
+  private subscription: Subscription | null = null;
+  public isMobile = false;
+  // конфіг до слайдера
   public slideConfig = {
     slidesToShow: 1,
     slidesToScroll: 1,
     dots: false,
     infinite: true,
-    autoplay: false,
-    autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 3000,
     arrows: false,
     // responsive: [
     //   {
@@ -49,6 +62,11 @@ export class MyProjectsComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformid)) {
+      // провірка на мобільні пристрої
+      this.subscription = this.isDevice.isMobile$.subscribe((isMobile) => {
+        this.isMobile = isMobile;
+      });
+
       gsap.from('.explore', {
         opacity: 0,
         y: 45,
@@ -75,9 +93,16 @@ export class MyProjectsComponent implements AfterViewInit {
         duration: 1,
       }).from(['.prev-arrow', '.next-arrow'], {
         opacity: 0,
-        x: (index) => (index === 0 ?  100 :  -100), // різні напрямки для стрілок
+        x: (index) => (index === 0 ? 100 : -100), // різні напрямки для стрілок
         duration: 1,
       });
+    }
+  }
+
+  // відписуємось
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 

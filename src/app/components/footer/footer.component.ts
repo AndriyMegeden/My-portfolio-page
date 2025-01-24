@@ -2,6 +2,8 @@ import { isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Subscription } from 'rxjs';
+import { DeviceService } from 'src/app/services/device.service';
 @Component({
   selector: 'app-footer',
   standalone: true,
@@ -10,7 +12,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent implements AfterViewInit {
-  constructor(@Inject(PLATFORM_ID) private platformid: Object) {}
+  private subscription: Subscription | null = null;
+  public isMobile = false;
+
+  constructor(
+    @Inject(PLATFORM_ID) private platformid: Object,
+    private isDevice: DeviceService
+  ) {}
   openTg() {
     window.open('https://t.me/Andriyko_meged', '_blank');
   }
@@ -24,6 +32,11 @@ export class FooterComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     gsap.registerPlugin(ScrollTrigger);
     if (isPlatformBrowser(this.platformid)) {
+      // провірка на мобільні пристрої
+      this.subscription = this.isDevice.isMobile$.subscribe((isMobile) => {
+        this.isMobile = isMobile;
+      });
+
       const tlForTg = gsap.timeline({
         scrollTrigger: {
           trigger: '.footer-wrap',
@@ -32,14 +45,16 @@ export class FooterComponent implements AfterViewInit {
           markers: false,
         },
       });
-      tlForTg.from('.telegram-container', {
-        opacity: 0,
-        y: 100,
-      }).from(['.title-tg', '.contact-btn'], {
-        opacity: 0,
-        x: (index) => (index === 0 ? -100 : 100), // різні напрямки для стрілок
-        duration: 1,
-      });
+      tlForTg
+        .from('.telegram-container', {
+          opacity: 0,
+          y: 100,
+        })
+        .from(['.title-tg', '.contact-btn'], {
+          opacity: 0,
+          x: (index) => (index === 0 ? -100 : 100), // різні напрямки для стрілок
+          duration: 1,
+        });
 
       const tlForTop = gsap.timeline({
         scrollTrigger: {
@@ -49,16 +64,18 @@ export class FooterComponent implements AfterViewInit {
           markers: false,
         },
       });
-      tlForTop.from('.button-top', {
-        opacity: 0,
-      }).from(['.bottom-text', '.arrow-top'], {
-        opacity: 0,
-        x: (index) => (index === 0 ?  100 :  -100), // різні напрямки для стрілок
-        duration: 1,
-      });
+      tlForTop
+        .from('.button-top', {
+          opacity: 0,
+        })
+        .from(['.bottom-text', '.arrow-top'], {
+          opacity: 0,
+          x: (index) => (index === 0 ? 100 : -100), // різні напрямки для стрілок
+          duration: 1,
+        });
     }
   }
-  
+
   enter() {
     gsap.to('.button', {
       scale: 1.2,
