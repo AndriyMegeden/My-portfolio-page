@@ -11,6 +11,7 @@
 // buttons
 .button {
   outline: none;
+  text-decoration: none;
   background-color: var(--white);
   width: 100%;
   max-width: 200px;
@@ -19,6 +20,7 @@
   z-index: 20;
   button {
     outline: none;
+    text-decoration: none;
     background-color: var(--white);
     transition-delay: 0.1s;
     width: 100%;
@@ -38,6 +40,7 @@
   }
   button:hover {
     outline: none;
+    text-decoration: none;
     transition-delay: 0.1s;
     background-color: var(--deep-blue);
     color: var(--white-opacity);
@@ -48,8 +51,10 @@
   }
   &.no-hover {
     outline: none;
+    text-decoration: none;
     button:hover {
       outline: none;
+      text-decoration: none;
       background-color: var(--white);
       color: var(--black);
 
