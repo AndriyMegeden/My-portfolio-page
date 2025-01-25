@@ -7,6 +7,7 @@ import {
   Inject,
   PLATFORM_ID,
 } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TranslationService } from 'src/app/services/Translation.service';
@@ -14,7 +15,7 @@ import { TranslationService } from 'src/app/services/Translation.service';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

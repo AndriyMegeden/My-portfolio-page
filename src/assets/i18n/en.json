@@ -1,6 +1,13 @@
-{
+{ 
+  "front": "Front End",
+  "dev": "developer",
   "MyPortfolio": "My Portfolio",
+  "subtitle": "with all my projects",
+  "gitBtn": "My",
+  "technologies": "Web development technologies that I use",
   "aboutMe": "All information about me",
   "explore": "Explore My Works",
+  "visit": "Visit",
+  "contact": "Contact Me",
   "telegram": "My Telegram"
 }

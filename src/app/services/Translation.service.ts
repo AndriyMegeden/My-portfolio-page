@@ -2,7 +2,11 @@ import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
-
+import {
+  aboutMeSettingsEn,
+  aboutMeSettingsUk,
+} from 'src/static/about-me.settings';
+import { ArrayLetters } from '@interfaces/about-me.interface';
 @Injectable({
   providedIn: 'root',
 })
@@ -27,7 +31,6 @@ export class TranslationService {
     }
   }
 
- 
   changeLanguage(lang: string): void {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem('language', lang); // зберігаємо мову в localStorage
@@ -36,13 +39,20 @@ export class TranslationService {
     }
   }
 
-
   getCurrentLanguage(): string {
     return this.translateService.currentLang;
   }
 
- 
-//   translate(key: string | string[], params?: object): string {
-//     return this.translateService.instant(key, params);
-//   }
+  // Заміна методу на використання даних з aboutMeSettings
+  public getAboutMeLetters(): ArrayLetters {
+    const currentLanguage = this.getCurrentLanguage();
+
+    // Вибір відповідних літер в залежності від мови
+    if (currentLanguage === 'en') {
+      return aboutMeSettingsEn; // Використовуємо 'aboutMeSettings' для англійської
+    } else if (currentLanguage === 'uk') {
+      return aboutMeSettingsUk;
+    }
+    return aboutMeSettingsEn; // Якщо мова не знайдена, повертаємо за замовчуванням
+  }
 }

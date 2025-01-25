@@ -1,6 +1,7 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   HostListener,
@@ -9,11 +10,13 @@ import {
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
+import { ArrayLetters } from '@interfaces/about-me.interface';
 import { TranslateModule } from '@ngx-translate/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Subscription } from 'rxjs';
 import { TranslationService } from 'src/app/services/Translation.service';
-import { aboutMeSettings } from 'src/static/about-me.settings';
+import { aboutMeSettingsEn } from 'src/static/about-me.settings';
 
 @Component({
   selector: 'app-about-me',
@@ -24,9 +27,9 @@ import { aboutMeSettings } from 'src/static/about-me.settings';
 })
 export class AboutMeComponent implements AfterViewInit, OnInit {
   @ViewChild('wrap') wrap!: ElementRef;
-
+ private languageChangeSubscription!: Subscription;
   // Імпортуємо дані з файлу з настройками
-  public letters = aboutMeSettings.letters;
+  public letters: ArrayLetters['letters'] = [];
 
   // Значення відступу праворуч
   marginRight: string = '';
@@ -34,7 +37,8 @@ export class AboutMeComponent implements AfterViewInit, OnInit {
   constructor(
     private elRef: ElementRef,
     @Inject(PLATFORM_ID) private platformid: Object,
-    private translationService: TranslationService
+    private translationService: TranslationService,
+    private cdRef: ChangeDetectorRef 
   ) {
     // Виконується тільки в браузері
     if (isPlatformBrowser(this.platformid)) {
@@ -49,11 +53,26 @@ export class AboutMeComponent implements AfterViewInit, OnInit {
       this.updateMarginRight();
     }
   }
+  
 
   ngOnInit(): void {
-    // ініціалізуєм мову по дефолту 
+    // ініціалізуєм мову по дефолту
     this.translationService.initDefaultLanguage();
+    this.updateLettersBasedOnLanguage();
+
+    // Підписка на зміни мови
+    this.translationService.currentLanguage$.subscribe(() => {
+      this.updateLettersBasedOnLanguage();
+    });
+
+    this.cdRef.detectChanges();
   }
+
+    // міняєм масив тексту 'про мене'
+    private updateLettersBasedOnLanguage(): void {
+      this.letters = this.translationService.getAboutMeLetters().letters; // Оновлюємо масив букв
+    }
+
 
   ngAfterViewInit(): void {
     gsap.registerPlugin(ScrollTrigger);
@@ -69,14 +88,15 @@ export class AboutMeComponent implements AfterViewInit, OnInit {
         },
       });
 
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '.wrap',
-          markers: false,
-          start: 'top 70%',
-          toggleActions: 'play none none none',
-        },
-      })
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: '.wrap',
+            markers: false,
+            start: 'top 70%',
+            toggleActions: 'play none none none',
+          },
+        })
         .from('.span', {
           opacity: 0,
           ease: 'back.out(4)',
@@ -102,6 +122,13 @@ export class AboutMeComponent implements AfterViewInit, OnInit {
       this.marginRight = '40px';
     } else {
       this.marginRight = '70px';
+    }
+  }
+
+  ngOnDestroy(): void {
+    // Відписуємось від Observable, коли компонент знищується
+    if (this.languageChangeSubscription) {
+      this.languageChangeSubscription.unsubscribe();
     }
   }
 }

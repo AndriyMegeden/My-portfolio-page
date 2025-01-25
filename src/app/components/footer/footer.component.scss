@@ -113,12 +113,15 @@
     .telegram-container {
       background-size: 300px ;
       .content {
+        width: 100%;
+        .contact-btn{
+          max-width: 200px;
+        }
         .title-tg {
           font-size: 30px;
         }
         .button {
           height: 40px;
-          max-width: 150px;
         }
       }
     }

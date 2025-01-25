@@ -6,7 +6,7 @@
       <span class="title">{{ 'MyPortfolio' | translate}}</span>
     </h1>
     <h2 class="overflow">
-      <span class="subtitle"> with all my projects </span>
+      <span class="subtitle">{{ "subtitle" | translate}}</span>
     </h2>
   </div>
   <div class="content w-100 d-flex flex-d-col justify-center align-center">
@@ -22,7 +22,7 @@
       [class.no-hover]="isMobile"
     >
       <button class="d-flex justify-center align-center">
-        <span class="m-r-8"> My GitHub </span>
+        <span class="m-r-8">{{"gitBtn" | translate}} GitHub</span>
         <img src="assets/images/link.svg" alt="" />
       </button>
     </div>
@@ -79,8 +79,7 @@
           alt=""
         />
       </div>
-      <span class="technology-text"
-        >Web development technologies that I use</span
+      <span class="technology-text">{{"technologies" | translate}}</span
       >
     </div>
   </div>

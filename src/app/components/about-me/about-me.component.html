@@ -5,7 +5,7 @@
   <div class="about-me d-flex d-wrap">
     <div *ngFor="let letter of letters" class="letter overflow">
       <span
-        [style.margin-right]="letter.letter === 't' ? marginRight : '0px'"
+        [style.margin-right]="letter.letter === 't' || letter.letter === 'о' ? marginRight : '0px'"
         class="span"
         >{{ letter.letter }}</span
       >
