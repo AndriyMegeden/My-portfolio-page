@@ -27,7 +27,7 @@ import { aboutMeSettingsEn } from 'src/static/about-me.settings';
 })
 export class AboutMeComponent implements AfterViewInit, OnInit {
   @ViewChild('wrap') wrap!: ElementRef;
- private languageChangeSubscription!: Subscription;
+  private languageChangeSubscription!: Subscription;
   // Імпортуємо дані з файлу з настройками
   public letters: ArrayLetters['letters'] = [];
 
@@ -37,8 +37,7 @@ export class AboutMeComponent implements AfterViewInit, OnInit {
   constructor(
     private elRef: ElementRef,
     @Inject(PLATFORM_ID) private platformid: Object,
-    private translationService: TranslationService,
-    private cdRef: ChangeDetectorRef 
+    private translationService: TranslationService
   ) {
     // Виконується тільки в браузері
     if (isPlatformBrowser(this.platformid)) {
@@ -54,6 +53,11 @@ export class AboutMeComponent implements AfterViewInit, OnInit {
     }
   }
   
+  // міняєм масив тексту 'про мене'
+  private updateLettersBasedOnLanguage(): void {
+    this.letters = this.translationService.getAboutMeLetters().letters; // Оновлюємо масив букв
+  }
+
 
   ngOnInit(): void {
     // ініціалізуєм мову по дефолту
@@ -64,15 +68,7 @@ export class AboutMeComponent implements AfterViewInit, OnInit {
     this.translationService.currentLanguage$.subscribe(() => {
       this.updateLettersBasedOnLanguage();
     });
-
-    this.cdRef.detectChanges();
   }
-
-    // міняєм масив тексту 'про мене'
-    private updateLettersBasedOnLanguage(): void {
-      this.letters = this.translationService.getAboutMeLetters().letters; // Оновлюємо масив букв
-    }
-
 
   ngAfterViewInit(): void {
     gsap.registerPlugin(ScrollTrigger);
