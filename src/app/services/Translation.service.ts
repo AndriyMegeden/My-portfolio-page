@@ -24,7 +24,7 @@ export class TranslationService {
    */
   initDefaultLanguage(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const defaultLanguage = localStorage.getItem('language') || 'uk'; // 'uk' - мова за замовчуванням
+      const defaultLanguage = localStorage.getItem('language') || 'en'; // 'en' - мова за замовчуванням
       this.translateService.setDefaultLang(defaultLanguage);
       this.translateService.use(defaultLanguage);
       this.currentLanguageSubject.next(defaultLanguage); // Оновлюємо поточну мову
