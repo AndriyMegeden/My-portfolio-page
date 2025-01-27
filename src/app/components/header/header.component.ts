@@ -1,4 +1,4 @@
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -15,11 +15,13 @@ import { TranslationService } from 'src/app/services/Translation.service';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements AfterViewInit {
+  public isTrue: boolean = true;
+
   // отримуємо доступ до header по #headerEl
   @ViewChild('headerEl') headerEl!: ElementRef;
 
@@ -30,6 +32,11 @@ export class HeaderComponent implements AfterViewInit {
   ) {}
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformid)) {
+      // Перевірка, чи є значення в localStorag
+      const storedLanguage = localStorage.getItem('language');
+      if (storedLanguage) {
+        this.isTrue = storedLanguage === 'en';
+      }
       gsap.registerPlugin(ScrollTrigger);
       gsap.fromTo(
         '.header',
@@ -54,20 +61,26 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   updateLogoAndText() {
-    gsap.to('.logo', {
+    gsap.to('.change-language', {
       duration: 0.6,
       scale: 0.7,
     });
   }
   resetLogoAndText() {
-    gsap.to('.logo', {
+    gsap.to('.change-language', {
       duration: 0.6,
       scale: 1,
     });
   }
 
-  // зміна мови
   changeLanguage(lang: string): void {
-    this.translationService.changeLanguage(lang);
+    // Зберігаємо вибрану мову в localStorage
+    localStorage.setItem('language', lang);
+    this.translationService.changeLanguage(lang); // Зміна мови
+    if (lang === 'uk') {
+      this.isTrue = false; // Якщо мова українська, змінюємо на false
+    } else {
+      this.isTrue = true; // Якщо мова англійська, змінюємо на true
+    }
   }
 }

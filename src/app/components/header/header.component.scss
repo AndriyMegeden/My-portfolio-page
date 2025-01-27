@@ -5,10 +5,12 @@
   background-color: var(--shadow);
   position: fixed;
   z-index: 300;
-  .logo {
+  .change-language {
     img {
-      width: 60px;
-      border-radius: 5px
+      max-width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
     }
     .text {
       .bold {
