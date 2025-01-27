@@ -1,9 +1,9 @@
 <div class="header m-10 d-flex justify-center align-center" #headerEl>
   <div class="change-language d-flex flex-d-row align-center">
-    <img (click)="changeLanguage('en')" *ngIf="!isTrue; else ukFlag" class="m-r-10" src="assets/languageImg/uk.svg" alt="">
+    <img (click)="changeLanguage('en')" *ngIf="!isTrue; else ukFlag" class="m-r-10"  src="assets/languageImg/uk.svg" alt="Ukrainian">
 
     <ng-template #ukFlag>
-      <img (click)="changeLanguage('uk')" class="m-r-10" src="assets/languageImg/en.svg"  alt="Ukrainian">
+      <img (click)="changeLanguage('uk')" class="m-r-10"  src="assets/languageImg/en.svg"  alt="">
     </ng-template>
     
     <div class="text d-flex flex-d-col">
