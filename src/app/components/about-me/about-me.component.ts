@@ -57,7 +57,7 @@ export class AboutMeComponent implements AfterViewInit, OnInit {
   private updateLettersBasedOnLanguage(): void {
     setTimeout(() => {
       this.letters = this.translationService.getAboutMeLetters().letters; // Оновлюємо масив букв
-    }, 30); // Затримка на 0 мілісекунд
+    }, 1000); // Затримка на 0 мілісекунд
   }
 
 
