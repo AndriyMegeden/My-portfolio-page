@@ -55,7 +55,9 @@ export class AboutMeComponent implements AfterViewInit, OnInit {
   
   // міняєм масив тексту 'про мене'
   private updateLettersBasedOnLanguage(): void {
-    this.letters = this.translationService.getAboutMeLetters().letters; // Оновлюємо масив букв
+    setTimeout(() => {
+      this.letters = this.translationService.getAboutMeLetters().letters; // Оновлюємо масив букв
+    }, 10); // Затримка на 0 мілісекунд
   }
 
 
