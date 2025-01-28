@@ -94,7 +94,7 @@ export class AboutMeComponent implements AfterViewInit, OnInit {
         .from('.span', {
           opacity: 0,
           ease: 'back.out(4)',
-          stagger: { amount: 1 },
+          stagger: { amount: 0.7 },
           x: -100,
           rotation: -15,
           duration: 1,
