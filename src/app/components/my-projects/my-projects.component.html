@@ -7,7 +7,7 @@
   <div class="slider d-flex justify-center align-center p-lr-24 sm-p-lr-15">
     <div class="carousel-contaner border-radius-20 w-100 d-flex justify-center align-center xl-justify-space-between">
       <button class="custom-arrow prev-arrow" (click)="slickModal.slickPrev()">
-        <img src="assets/images/arrow.svg" />
+        <img src="assets/images/arrow.svg" alt="arrow" />
       </button>
       <ngx-slick-carousel
         class="carousel w-100"
@@ -29,7 +29,7 @@
               <div class="button m-t-20 xl-m-t-0"  (click)="navigateToProject(slide.link)" [class.no-hover]="isMobile" (mouseenter)="!isMobile && enter()" (mouseleave)="!isMobile && leave()">
                 <button class="d-flex justify-center align-center">
                   <span class="m-r-8">{{"visit" | translate}}</span>
-                  <img src="assets/images/visit.svg" alt="" />
+                  <img src="assets/images/visit.svg" alt="visit" />
                 </button>
               </div>
             </div>
@@ -41,7 +41,7 @@
         </div>
       </ngx-slick-carousel>
       <button class="custom-arrow next-arrow" (click)="slickModal.slickNext()">
-        <img src="assets/images/arrow.svg" />
+        <img src="assets/images/arrow.svg"  alt="arrow"/>
       </button>
     </div>
   </div>
