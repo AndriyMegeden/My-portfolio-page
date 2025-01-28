@@ -52,14 +52,11 @@ export class AboutMeComponent implements AfterViewInit, OnInit {
       this.updateMarginRight();
     }
   }
-  
+
   // міняєм масив тексту 'про мене'
   private updateLettersBasedOnLanguage(): void {
-    setTimeout(() => {
-      this.letters = this.translationService.getAboutMeLetters().letters; // Оновлюємо масив букв
-    }, 100); // Затримка на 0 мілісекунд
+    this.letters = this.translationService.getAboutMeLetters().letters; // Оновлюємо масив букв
   }
-
 
   ngOnInit(): void {
     // ініціалізуєм мову по дефолту
