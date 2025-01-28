@@ -1,14 +1,11 @@
 .footer-wrap {
-  width: 100%;
   .telegram-container {
     height: 500px;
-    position: relative;
     border-bottom: 1px solid var(--border-dark);
     background-repeat: no-repeat;
     background: url("/assets/images/telegram.svg") center / 455px 407px
         no-repeat,
       linear-gradient(var(--background) 50%, var(--deep-blue) 100%);
-    width: 100%;
 
     .content {
       .title-tg {
@@ -16,7 +13,6 @@
         font-family: Rubik;
       }
       z-index: 20;
-      position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -60,7 +56,6 @@
     backdrop-filter: blur(20px);
   }
   .inner-container {
-    width: 100%;
     height: 500px;
     background: radial-gradient(
       120% 120% at 50% -50%,
@@ -113,7 +108,6 @@
     .telegram-container {
       background-size: 300px ;
       .content {
-        width: 100%;
         .contact-btn{
           max-width: 200px;
         }

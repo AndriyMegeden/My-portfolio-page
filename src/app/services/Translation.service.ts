@@ -11,6 +11,7 @@ import { ArrayLetters } from '@interfaces/about-me.interface';
   providedIn: 'root',
 })
 export class TranslationService {
+                                  
   private currentLanguageSubject = new BehaviorSubject<string>('en'); // Початкове значення
   currentLanguage$ = this.currentLanguageSubject.asObservable(); // Публічна Observable властивість
 

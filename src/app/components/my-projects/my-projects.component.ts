@@ -38,7 +38,7 @@ export class MyProjectsComponent implements AfterViewInit, OnDestroy {
     slidesToScroll: 1,
     dots: false,
     infinite: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     arrows: false,
     // responsive: [

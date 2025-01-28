@@ -2,8 +2,6 @@
   margin-top: 100px;
   font-family: Rubik;
   .text {
-    text-align: center;
-    overflow: hidden;
     line-height: 1.5;
     .title {
       display: inline-block;
@@ -17,9 +15,7 @@
   .slider {
     height: 500px;
     .carousel-contaner {
-      width: 100%;
       max-width: 1440px;
-      border-radius: 20px;
       height: 300px;
       background: radial-gradient(
         circle,
@@ -42,12 +38,10 @@
       }
       ngx-slick-carousel {
         max-width: 1200px;
-        width: 100%;
         .content {
           .management {
             display: block;
             max-width: 240px;
-            width: 100%;
             .title {
               font-size: 46px;
             }
@@ -59,7 +53,6 @@
             width: auto;
             height: 400px;
             padding: 30px;
-            border-radius: 20px;
             background: radial-gradient(
               circle,
               var(--background) 40%,
@@ -70,7 +63,6 @@
               width: 100%;
               height: 100%;
               object-fit: cover;
-              border-radius: 5px;
             }
           }
         }
@@ -97,7 +89,6 @@
       height: 600px;
       .carousel-contaner {
         ngx-slick-carousel {
-          width: 100%;
           max-width: 780px;
           .content {
             .management {
@@ -163,13 +154,6 @@
                 font-size: 18px;
               }
             }
-            .img {
-              height: auto;
-              img {
-                object-fit: cover;
-                border-radius: 5px;
-              }
-            }
           }
         }
       }
@@ -199,13 +183,6 @@
               .button {
                 max-width: 150px;
                 height: 40px;
-              }
-            }
-            .img {
-              height: auto;
-              img {
-                object-fit: cover;
-                border-radius: 5px;
               }
             }
           }
