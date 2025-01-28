@@ -88,6 +88,5 @@ export class HeaderComponent implements AfterViewInit {
     } else {
       this.isTrue = true;
     }
-    
   }
 }

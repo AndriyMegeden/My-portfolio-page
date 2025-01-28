@@ -11,7 +11,7 @@ import { ArrayLetters } from '@interfaces/about-me.interface';
   providedIn: 'root',
 })
 export class TranslationService {
-  private currentLanguageSubject = new BehaviorSubject<string>('uk'); // Початкове значення
+  private currentLanguageSubject = new BehaviorSubject<string>('en'); // Початкове значення
   currentLanguage$ = this.currentLanguageSubject.asObservable(); // Публічна Observable властивість
 
   constructor(
@@ -43,16 +43,8 @@ export class TranslationService {
     return this.translateService.currentLang;
   }
 
-  // Заміна методу на використання даних з aboutMeSettings
-  public getAboutMeLetters(): ArrayLetters {
-    const currentLanguage = this.getCurrentLanguage();
-
-    // Вибір відповідних літер в залежності від мови
-    if (currentLanguage === 'uk') {
-      return aboutMeSettingsUk ; // Використовуємо 'aboutMeSettings' для англійської
-    } else if (currentLanguage === 'en') {
-      return aboutMeSettingsEn;
-    }
-    return aboutMeSettingsEn; // Якщо мова не знайдена, повертаємо за замовчуванням
+  getAboutMeLetters() {
+    const currentLanguage = this.currentLanguageSubject.getValue();
+    return currentLanguage === 'uk' ? aboutMeSettingsUk : aboutMeSettingsEn;
   }
 }

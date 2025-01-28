@@ -16,7 +16,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Subscription } from 'rxjs';
 import { TranslationService } from 'src/app/services/Translation.service';
-import { aboutMeSettingsEn } from 'src/static/about-me.settings';
 
 @Component({
   selector: 'app-about-me',
