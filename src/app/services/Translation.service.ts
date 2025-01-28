@@ -48,10 +48,10 @@ export class TranslationService {
     const currentLanguage = this.getCurrentLanguage();
 
     // Вибір відповідних літер в залежності від мови
-    if (currentLanguage === 'en') {
-      return aboutMeSettingsEn; // Використовуємо 'aboutMeSettings' для англійської
-    } else if (currentLanguage === 'uk') {
-      return aboutMeSettingsUk;
+    if (currentLanguage === 'uk') {
+      return aboutMeSettingsUk ; // Використовуємо 'aboutMeSettings' для англійської
+    } else if (currentLanguage === 'en') {
+      return aboutMeSettingsEn;
     }
     return aboutMeSettingsEn; // Якщо мова не знайдена, повертаємо за замовчуванням
   }

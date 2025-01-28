@@ -7,6 +7,10 @@ import {
   Inject,
   PLATFORM_ID,
 } from '@angular/core';
+import {
+  aboutMeSettingsEn,
+  aboutMeSettingsUk,
+} from 'src/static/about-me.settings';
 import { TranslateModule } from '@ngx-translate/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -77,10 +81,13 @@ export class HeaderComponent implements AfterViewInit {
     // Зберігаємо вибрану мову в localStorage
     localStorage.setItem('language', lang);
     this.translationService.changeLanguage(lang); // Зміна мови
+    this.translationService.getAboutMeLetters().letters;
+    console.log(this.translationService.getAboutMeLetters().letters);
     if (lang === 'uk') {
-      this.isTrue = false; // Якщо мова українська, змінюємо на false
+      this.isTrue = false;
     } else {
-      this.isTrue = true; // Якщо мова англійська, змінюємо на true
+      this.isTrue = true;
     }
+    
   }
 }
