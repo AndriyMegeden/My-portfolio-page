@@ -22,7 +22,8 @@
       "useDefineForClassFields": false,
       "lib": ["ES2022", "dom"],
       "paths": {
-        "@interfaces/*": ["src/app/interfaces/*"]
+        "@interfaces/*": ["src/app/interfaces/*"],
+        "zone.js/node": ["node_modules/zone.js/dist/zone-node.js"]
       }
     },
 
