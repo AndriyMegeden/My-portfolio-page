@@ -31,8 +31,7 @@ export const myProjectSettings: ArraySlider = {
       slide: 'assets/slider/be-best.png',
       title: 'Be Best',
       subtitle: 'projects.beBest',
-      
-      link: '/assets/videos/be-best-video.mp4',
+      link: 'https://be-best-project.vercel.app/',
     },
   ],
 };
