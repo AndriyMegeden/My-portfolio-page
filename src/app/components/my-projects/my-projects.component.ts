@@ -25,15 +25,7 @@ export class MyProjectsComponent implements AfterViewInit, OnDestroy {
   constructor(
     @Inject(PLATFORM_ID) private platformid: Object,
     private isDevice: DeviceService,
-    private translate: TranslateService,
-    private translationService: TranslationService
   ) {
-    // this.translate.setDefaultLang('en');
-
-  // myProjectSettings.slider = myProjectSettings.slider.map(slide => ({
-  //   ...slide,
-  //   subtitle: this.translate.instant(`projects.${slide.title.toLowerCase().replace(/\s/g, '')}`)
-  // }));
   }
 
   // імпортуємо дані з файлу з настройками

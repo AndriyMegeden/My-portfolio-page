@@ -4,6 +4,6 @@ export interface ArraySlider{
 export interface Slider {
     slide: string;
     title: string;
-    subtitle?: string;
+    subtitle: string;
     link?: string;
 }

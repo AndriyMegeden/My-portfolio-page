@@ -23,7 +23,7 @@
                   <span>{{slide.title}}</span>
                 </div>
                 <div class="subtitle xl-m-b-20">
-                  <span >{{slide.subtitle}}</span>
+                  <span >{{slide.subtitle | translate}}</span>
                 </div>
               </div>
               <div class="button m-t-20 xl-m-t-0"  (click)="navigateToProject(slide.link)" [class.no-hover]="isMobile" (mouseenter)="!isMobile && enter()" (mouseleave)="!isMobile && leave()">
