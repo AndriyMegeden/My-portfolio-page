@@ -1,5 +1,5 @@
 <div class="wrap d-flex justify-center flex-d-col m-b-150  sm-m-b-20">
-  <div class="text t-center overflow d-flex flex-d-col">
+  <div class="text t-center overflow d-flex flex-d-col md-m-b-10">
     <h1 class="explore">
       <span class="title">{{'explore' | translate}}</span>
     </h1>
@@ -16,14 +16,14 @@
         (init)="slickInit($event)"
       >
         <div ngxSlickItem *ngFor="let slide of slider">
-          <div  class="content p-lr-24 lg-p-lr-0 d-flex flex-d-row xl-flex-d-col align-center justify-center lg-m-lr-5">
-            <div class="management w-100 m-r-50 xl-m-r-0 d-flex xl-justify-space-between xl-align-center xl-m-b-20">
+          <div  class="content p-lr-24 lg-p-lr-0 d-flex flex-d-row lg-flex-d-col align-center justify-center lg-m-lr-5">
+            <div class="management w-100 m-r-50 xl-m-r-20 d-flex xl-flex-d-col lg-flex-d-row lg-m-r-0 lg-align-center sm-flex-d-col sm-m-b-20">
               <div class="managment-text xl-m-r-10">
-                <div class="title m-b-10 xl-m-b-0">
+                <div class="title m-b-10">
                   <span>{{slide.title}}</span>
                 </div>
-                <div class="subtitle">
-                  <span>{{slide.subtitle}}</span>
+                <div class="subtitle xl-m-b-20">
+                  <span >{{slide.subtitle}}</span>
                 </div>
               </div>
               <div class="button m-t-20 xl-m-t-0"  (click)="navigateToProject(slide.link)" [class.no-hover]="isMobile" (mouseenter)="!isMobile && enter()" (mouseleave)="!isMobile && leave()">

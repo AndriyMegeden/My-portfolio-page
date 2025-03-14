@@ -14,9 +14,8 @@
   <div class="description p-relative w-100">
     <img class="earth p-relative w-100" src="assets/images/earth2.svg" alt="earth" />
     <div class="text-wrap w-100 p-absolute d-flex justify-center  lg-p-lr-24 sm-p-lr-15">
-      <div class="text w-100 t-center border-radius-20 p-16">
-        <span>
-          {{'aboutMe' | translate}}
+      <div class="text w-100 border-radius-20 p-16">
+        <span [innerHTML]="'aboutMe' | translate">
         </span>
       </div>
     </div>

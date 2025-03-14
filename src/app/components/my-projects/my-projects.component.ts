@@ -13,7 +13,7 @@ import { myProjectSettings } from 'src/static/my-projects.settings';
 import { Subscription } from 'rxjs';
 import { DeviceService } from 'src/app/services/device.service';
 import { TranslationService } from 'src/app/services/Translation.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-my-projects',
   standalone: true,
@@ -25,8 +25,16 @@ export class MyProjectsComponent implements AfterViewInit, OnDestroy {
   constructor(
     @Inject(PLATFORM_ID) private platformid: Object,
     private isDevice: DeviceService,
+    private translate: TranslateService,
     private translationService: TranslationService
-  ) {}
+  ) {
+    // this.translate.setDefaultLang('en');
+
+  // myProjectSettings.slider = myProjectSettings.slider.map(slide => ({
+  //   ...slide,
+  //   subtitle: this.translate.instant(`projects.${slide.title.toLowerCase().replace(/\s/g, '')}`)
+  // }));
+  }
 
   // імпортуємо дані з файлу з настройками
   public slider = myProjectSettings.slider;

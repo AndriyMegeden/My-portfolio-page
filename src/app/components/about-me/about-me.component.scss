@@ -131,7 +131,10 @@
       .text-wrap {
         top: 65%;
         .text {
-          font-size: 14px;
+          font-size: 13px;
+          span{
+            font-size: 13px;
+          }
         }
       }
     }

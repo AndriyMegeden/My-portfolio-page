@@ -47,7 +47,7 @@
               font-size: 46px;
             }
             .subtitle {
-              font-size: 26px;
+              font-size: 16px;
             }
           }
           .img {
@@ -94,12 +94,9 @@
           .content {
             .management {
               display: flex;
-              max-width: 100%;
+              max-width: 40%;
               .title {
                 font-size: 36px;
-              }
-              .subtitle {
-                font-size: 20px;
               }
             }
           }
@@ -120,6 +117,12 @@
       .carousel-contaner {
         ngx-slick-carousel {
           .content {
+            .management {
+              max-width: 100%;
+              .managment-text{
+                max-width: 70%;
+              }
+            }
             .img {
               height: auto;
             }
@@ -151,9 +154,6 @@
               .title {
                 font-size: 30px;
               }
-              .subtitle {
-                font-size: 18px;
-              }
             }
           }
         }
@@ -170,16 +170,15 @@
       }
     }
     .slider {
-      height: 600px;
       .carousel-contaner {
         ngx-slick-carousel {
           .content {
             .management {
+              .managment-text{
+                max-width: 100%;
+              }
               .title {
                 font-size: 20px;
-              }
-              .subtitle {
-                font-size: 16px;
               }
               .button {
                 max-width: 150px;
@@ -192,10 +191,12 @@
     }
   }
 }
-@media (max-width: 450px) {
+
+@media (max-width: 425px) {
   .wrap {
     .slider {
-      height: 450px;
+      height: 600px;
     }
   }
 }
+
