@@ -11,13 +11,13 @@
   "visit": "Visit",
   "contact": "Contact Me",
   "telegram": "My Telegram",
-  
+
   "projects": {
-    "influencer": "I was responsible for the layout and responsive design of this website according to the provided design. I developed the page structure, implemented logic for user interaction, and protected routes. Additionally, I integrated Firebase for user registration and authentication.",
-    "vorfahr": "I worked on the layout and responsive design of the header, footer, and the registration and login page. I also integrated translation files.",
-    "user": "This is an admin panel for an internet provider. I developed the project structure and worked on the layout. I also fully integrated the admin panel with Firebase. Here, you can create, edit, and delete users, search for them by location, and view statistics on active and inactive users.",
+    "influencer": "I was responsible for the layout and responsive design of the website based on the provided mockup. I developed the page structure, implemented user interaction logic, and protected routes. I also integrated Firebase for user registration and authentication. I used Angular for front-end development and TypeScript for writing application logic.",
+    "vorfahr": "I worked on the layout and responsive design of the header, footer, and authentication pages (registration and login). I also integrated translation files and set up a localization system for multilingual support.",
+    "user": "This is an admin panel for an internet provider. I developed the project structure and handled the layout. Fully integrated the panel with Firebase. Implemented functionality for creating, editing, and deleting users, searching by location, and viewing statistics of active and inactive users. Login details Email: andriy@gmail.com Password: 111111",
     "films": "This is my personal project where I learned GSAP animations. With this knowledge, I created this awesome portfolio.",
-    "beBest": "This is a mobile app for creating personal goals. I worked on the adaptive layout for all pages, developed the project structure, and implemented various logic. I also tested the app on an iPhone, integrated Apple authentication, and set up Apple payments. I handled most of the front-end tasks."
+    "beBest": "This is a mobile app for setting personal goals. I developed the project structure, handled the adaptive layout for all pages, and implemented the core logic. I tested the app on iPhone, integrated Apple authentication, and set up the payment system. I was responsible for the front-end development."
   }
 }
 
