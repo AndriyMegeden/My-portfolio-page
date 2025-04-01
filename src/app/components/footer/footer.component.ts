@@ -23,7 +23,7 @@ export class FooterComponent implements AfterViewInit {
        private translationService: TranslationService
   ) {}
   openTg() {
-    window.open('https://t.me/Andriyko_meged', '_blank');
+    window.open('https://t.me/Andriy_meheden', '_blank');
   }
   scrollTop() {
     window.scrollTo({
