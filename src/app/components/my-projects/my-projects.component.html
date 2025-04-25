@@ -1,4 +1,4 @@
-<div class="wrap d-flex justify-center flex-d-col m-b-150  sm-m-b-20">
+<div class="wrap d-flex justify-center flex-d-col">
   <div class="text t-center overflow d-flex flex-d-col md-m-b-10">
     <h1 class="explore">
       <span class="title">{{'explore' | translate}}</span>
@@ -10,7 +10,7 @@
         <img src="assets/images/arrow.svg" alt="arrow" />
       </button>
       <ngx-slick-carousel
-        class="carousel w-100"
+        class="carousel w-100 "
         #slickModal="slick-carousel"
         [config]="slideConfig"
         (init)="slickInit($event)"

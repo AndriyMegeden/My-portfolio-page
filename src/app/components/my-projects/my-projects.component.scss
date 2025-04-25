@@ -64,6 +64,7 @@
               width: 100%;
               height: 100%;
               object-fit: cover;
+              max-height: 400px;
             }
           }
         }
@@ -87,7 +88,6 @@
 @media (max-width: 1200px) {
   .wrap {
     .slider {
-      height: 600px;
       .carousel-contaner {
         ngx-slick-carousel {
           max-width: 780px;
@@ -113,9 +113,11 @@
       }
     }
     .slider {
-      height: 820px;
+      height: auto;
       .carousel-contaner {
+        height: 100%;
         ngx-slick-carousel {
+          height: 100%;
           .content {
             .management {
               max-width: 100%;
@@ -146,7 +148,7 @@
   .wrap {
     margin-top: 70px;
     .slider {
-      height: 720px;
+
       .carousel-contaner {
         ngx-slick-carousel {
           .content {
@@ -192,11 +194,11 @@
   }
 }
 
-@media (max-width: 425px) {
-  .wrap {
-    .slider {
-      height: 600px;
-    }
-  }
-}
+// @media (max-width: 425px) {
+//   .wrap {
+//     .slider {
+//       height: 600px;
+//     }
+//   }
+// }
 
