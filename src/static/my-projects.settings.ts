@@ -15,6 +15,12 @@ export const myProjectSettings: ArraySlider = {
       link: 'https://vorfahrqr.de/login',
     },
     {
+      slide: 'assets/slider/landing-page.png',
+      title: 'lawn mower',
+      subtitle: 'projects.lawn-mower',
+      link: 'https://landing-page-lawn-mower.vercel.app/',
+    },
+    {
       slide: 'assets/slider/be-best.png',
       title: 'Be Best',
       subtitle: 'projects.beBest',

@@ -18,7 +18,8 @@
     "user": "This is an admin panel for an internet provider. I developed the project structure and handled the layout. Fully integrated the panel with Firebase. Implemented functionality for creating, editing, and deleting users, searching by location, and viewing statistics of active and inactive users. Login details Email: andriy@gmail.com Password: 111111",
     "shopify": "The project is a simple product page created without the use of frameworks or libraries, using only pure HTML, CSS, and JavaScript. The task was to create a responsive interface to display products on the page, as well as implement functionality to fetch product data from a database and display it on the page.",
     "films": "This is my personal project where I learned GSAP animations. With this knowledge, I created this awesome portfolio.",
-    "beBest": "This is a mobile app for setting personal goals. I developed the project structure, handled the adaptive layout for all pages, and implemented the core logic. I tested the app on iPhone, integrated Apple authentication, and set up the payment system. I was responsible for the front-end development."
+    "beBest": "This is a mobile app for setting personal goals. I developed the project structure, handled the adaptive layout for all pages, and implemented the core logic. I tested the app on iPhone, integrated Apple authentication, and set up the payment system. I was responsible for the front-end development.",
+    "lawn-mower": "Commercial landing page for selling lawnmowers. Fully developed from scratch without frameworks using pure HTML, SCSS, and JS. Responsive design, SEO optimization, pixel-perfect according to the Figma mockup. Implemented order form submission to email."
   }
 }
 
